@@ -124,8 +124,8 @@ Clarity.prototype.load_map = function (map) {
     map.data.forEach(function (row, y) {
 
       _this.current_map.height = Math.max(_this.current_map.height, y);
-
-      row.forEach(function (tile, x) {
+      
+      Array.prototype.forEach.call(row, function (tile, x) {
 
         _this.current_map.width = Math.max(_this.current_map.width, x);
 
