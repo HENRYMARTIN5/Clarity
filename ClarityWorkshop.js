@@ -79,5 +79,5 @@ if (request.status === 200) {
 }
 
 function loadLevelById(id){
-  window.location.href = "https://clarity.n3rdl0rd.repl.co/level.html?id=" + (id).toString();
+  window.location.href = "https://henrymartin5.github.io/Clarity/level.html?id=" + (id).toString();
 }
