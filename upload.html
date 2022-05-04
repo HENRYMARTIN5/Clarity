@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<title>Clarity Workshop</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="loaders.css">
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+<style>
+  
+	body,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: "Raleway", sans-serif;
+    color: #FFF
+    
+	}
+
+  .bkg{
+    background-color: #1d1b31;
+  }
+
+  .level{
+    border: 2px solid #d2bdff;
+	background-color: #3c2d52;
+
+        
+        }
+</style>
+
+<body class="bkg w3-content" style="max-width:1600px">
+
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:15px">
+
+  <!-- Header -->
+  <header id="portfolio">
+    <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+    <h1><b>Clarity Workshop</b></h1><p>Fill in your level information below to upload and publish it!</p><br><br></br><center><a href="/account.html">Need an account? Click here!</a></center>
+      
+    </div>
+  </header>
+
+  
+
+    <div id="container">
+<center>
+    <p>Username:</p>
+      <input type="text" id="user">
+    <p>Password:</p>
+      <input type="text" id="pass">
+    <p>Level Code:</p>
+      <input type="text" id="lvlcode">
+    <p>Level Name:</p>
+      <input type="text" id="lvlname">
+    <p>Level Description (Please don't spam, it's just an annoyance):</p>
+      <input type="text" id="lvldesc">
+    <p>Allow developer commands in level&nbsp;&nbsp;  
+      <input type="checkbox" id="devcommands"></p>
+    <br></br>
+    <button class="btn w3-btn	w3-ripple w3-blue w3-round-large" id="submitbtn" onclick="submit();">Submit to Workshop</button><br></br><br></br>
+  </div>
+</center>
+
+<!-- End page content -->
+</div>
+
+<script>
+  const submitbtn = document.getElementById("submitbtn");
+  const userinp = document.getElementById("user");
+  const passinp = document.getElementById("pass");
+  const lvlcodeinp = document.getElementById("lvlcode");
+  const lvlnameinp = document.getElementById("lvlname");
+  const lvldescinp = document.getElementById("lvldesc");
+  const devcmds = document.getElementById("devcommands");
+  window.onload = function(){
+    console.log("Clarity V1.0.1 API/SDK");
+  }
+
+  function httpGet(theUrl)
+  {
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+      xmlHttp.send( null );
+      return xmlHttp.responseText;
+  }
+
+function sendJSON(data) {
+
+
+    var json = JSON.stringify(data);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://clarityworkshop.n3rdl0rd.repl.co/add");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(json);
+}
+
+  window.onload = function(){
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        if(urlParams.has('lvl')){
+          lvlcodeinp.value = urlParams.get("lvl");
+        }
+  }
+  
+  function submit(){
+    if(httpGet("https://clarityWorkshop.n3rdl0rd.repl.co/login/"+userinp.value+"/"+passinp.value) == "ok"){
+        var payload = {
+    "code": lvlcodeinp.value, "name": lvlnameinp.value, "desc": lvldescinp.value, "author": userinp.value
+  }
+  sendJSON(payload);
+  alert("Submitted!");
+  window.location.href="https://Clarity.n3rdl0rd.repl.co/workshop.html";
+    } else{
+      alert("Incorrect username or password!");
+      return;
+    }
+  }
+</script>
+</body>
+</html>

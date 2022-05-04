@@ -1,0 +1,316 @@
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+* {
+	margin: 0;
+	padding: 0;
+  
+}
+
+.swal2-popup.swal2-toast {
+  font-family: 'Montserrat' !important;
+}
+
+body {
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+}
+
+body {
+	background: #1d1b31;
+
+}
+
+
+.button {
+  border: 2px solid #d2bdff;
+  height: 80px;
+  width: 200px;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  margin: 25px;
+}
+.button::after {
+  content: "HOVER ME";
+  position: absolute;
+  top: 41%;
+  left: 50%;
+  transform: translate(-50%);
+  color: #d2bdff;
+  transition: all 0.1s linear;
+}
+.button::before {
+  content: "";
+  position: relative;
+  display: block;
+  height: 15px;
+  width: 15px;
+  background: #d2bdff;
+  box-shadow: 0px 0px 10px 3px #0ff;
+  margin-left: -8px;
+  margin-top: -8px;
+  opacity: 0;
+  transition: all 0.1s linear;
+  border-radius: 100%;
+  animation: star 1.3s linear infinite;
+}
+@keyframes star {
+  0% {
+    margin-left: -8px;
+    margin-top: -8px;
+  }
+  25% {
+    margin-left: 194px;
+    margin-top: -8px;
+  }
+  50% {
+    margin-left: 194px;
+    margin-top: 75px;
+  }
+  75% {
+    margin-left: -8px;
+    margin-top: 75px;
+  }
+  100% {
+    margin-left: -8px;
+    margin-top: -8px;
+  }
+}
+.button:hover::before {
+  opacity: 1;
+  animation: star 1.3s linear infinite;
+}
+.button:hover::after {
+  content: "I'M GLOWING";
+  text-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 20px #82bedc, 0 0 30px #82bedc, 0 0 40px #82bedc, 0 0 50px #82bedc, 0 0 60px #82bedc;
+}
+
+.button2 {
+  position: relative;
+  display: inline-block;
+  padding: 30px 61px;
+  border-radius: 4px;
+  color: #03e9f4;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  margin: 25px;
+  font-family: "Roboto", sans-serif;
+  filter: hue-rotate(0deg);
+  border: 2px solid #d2bdff;
+  transition: all 0.1s linear;
+}
+.button2:hover {
+  border: 1px solid transparent;
+}
+.button2:hover span {
+  position: absolute;
+  display: block;
+}
+.button2:hover span:nth-child(1) {
+  filter: hue-rotate(0deg);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #3a86ff);
+  animation: animate1 1s linear infinite;
+}
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+}
+.button2:hover span:nth-child(2) {
+  filter: hue-rotate(60deg);
+  top: -100%;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #3a86ff);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+  50%, 100% {
+    top: 100%;
+  }
+}
+.button2:hover span:nth-child(3) {
+  filter: hue-rotate(120deg);
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background: linear-gradient(270deg, transparent, #3a86ff);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+@keyframes animate3 {
+  0% {
+    right: -100%;
+    height: 3px;
+  }
+  50%, 100% {
+    height: 2px;
+    right: 100%;
+  }
+}
+
+/* CSS */
+.button-56 {
+  align-items: center;
+  background-color: #fee6e3;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-56:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.button-56:hover:after {
+  transform: translate(0, 0);
+}
+
+.button-56:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+.button-56:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-56 {
+    padding: 0 40px;
+  }
+}
+
+/* CSS */
+.button-62 {
+  background: linear-gradient(to bottom right, #ff143f, #FF9A5A);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.button-62:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.button-62:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+.button2:hover span:nth-child(4) {
+  filter: hue-rotate(300deg);
+  bottom: -100%;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #3a86ff);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%, 100% {
+    bottom: 100%;
+  }
+}
+canvas {
+      padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+	display: block;
+	margin: 20px auto 20px;
+  border: 3px hidden #b0b0b0;
+
+	-webkit-box-shadow: 0 0 16px 2px rgba(0,0,0,0.8);
+	box-shadow: 0 0 16px 2px rgba(0,0,0,0.8);
+}
+
+p {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	color: #ffffff;
+	display: block;
+	width: 400px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+a {
+  color: white;
+}
+
+.info {
+	margin: 14px auto;
+	text-align: justify;
+	font-size: 14px;
+	color: #f5f5f5;
+  text-color: #f5f5f5;
+}
+
+label {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	color: #555;
+	width: 400px;
+	margin: 0 auto;
+	display: block;
+}

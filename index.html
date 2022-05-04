@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Clarity</title>
+
+
+	<script type="text/javascript" src="Clarity.js">
+    
+	</script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+
+
+  <script src="https://cdn.jsdelivr.net/gh/pieroxy/lz-string@master/libs/lz-string.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8AAAAAAAAAAAAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wBIrP8ASKz/AEis/wBIrP8ASKz/AEis/wBIrP8ASKz/AAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wAAAAAAAAAAAAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AEis/wBIrP8ASKz/AEis/wBIrP8ASKz/AEis/wBIrP8AAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AAAAAAAAAAAAAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AEis/wBIrP8Aa///AGv//wBr//8Aa///AGv//wBr//8Aa///AGv//wBIrP8ASKz/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAAAAAAAAAAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8ASKz/AEis/wBr//8Aa///AGv//wBr//8Aa///AGv//wBr//8Aa///AEis/wBIrP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAAAAAAAAAAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wBIrP8ASKz/AGv//wBr//8Aa///AGv//wBr//8Aa///AGv//wBr//8ASKz/AEis/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AEis/wBIrP8Aa///AGv//wBr//8Aa///AGv//wBr//8Aa///AGv//wBIrP8ASKz/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8ASKz/AEis/wBr//8Aa///AGv//wBr//8Aa///AGv//wBr//8Aa///AEis/wBIrP8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wBIrP8ASKz/AGv//wBr//8Aa///AGv//wBr//8Aa///AGv//wBr//8ASKz/AEis/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AEis/wBIrP8Aa///AGv//wBr//8Aa///AGv//wBr//8Aa///AGv//wBIrP8ASKz/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAAAAAAAAAAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8ASKz/AEis/wBr//8Aa///AGv//wBr//8Aa///AGv//wBr//8Aa///AEis/wBIrP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAAAAAAAAAAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AEis/wBIrP8ASKz/AEis/wBIrP8ASKz/AEis/wBIrP8AAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AAAAAAAAAAAAAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8ASKz/AEis/wBIrP8ASKz/AEis/wBIrP8ASKz/AEis/wAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/AAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/8AD///AA//8AAA//AAAP/AAAA/wAAAPwAAAA8AAAAPAAAADwAAAAwAAAAMAAAADAAAAAwAAAAMAAAD/AAAA/wAAAP8AAAD/AAAAAwAAAAMAAAADAAAAA8AAAAPAAAADwAAAA8AAAAPwAAAP8AAAD/wAAD/8AAA//8AD///AA/8=" type="image/x-icon">
+</head>
+
+<body>
+	<p class="adress"><br></p>
+	<center id="contButtons">
+<div id="buttoncontainer">
+<button class="button-62" role="button" onclick="load()">Load Level from Clipboard</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button class="button-62" role="button" onclick="game.current_map.keys[10].solid = 1;game.current_map.keys[10].img = wallimg;game.load_map(map);">Reload Level</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="button-62" role="button" href="editr.html" target="_blank">Editr</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="button-62" role="button" href="workshop.html">Workshop</a>
+</div>	
+	<canvas id="canvas"></canvas>
+
+	<p id="instruct">
+		Use the left, right and up arrow keys to move. Use the <a href="editr.html" target="">Editr</a> to create and play your own levels!
+	</p>
+
+
+<center>
+	
+	<label for="viewport">
+        <input type="checkbox"class="info" id="viewport" onclick="game.limit_viewport=this.checked;" checked/><span class="info"> Confine viewport to map</span></label>
+  <label for="debug">
+        <input type="checkbox"class="info" id="debug" onclick="game.debug=this.checked;" /><span class="info"> Debug Mode</span></label>
+  <p><span id="debugmenu"></span><br></br><span id="debugmenu2"></span></p>
+
+
+
+<!-- HTML !-->
+<br></br>
+
+
+
+  </center>
+
+    <script type="text/javascript">
+        function signin(){
+    Swal.fire({
+  title: 'Login to Clarity',
+  html: `<input type="text" id="login" class="swal2-input" placeholder="Username">
+  <input type="password" id="password" class="swal2-input" placeholder="Password">`,
+  confirmButtonText: 'Login',
+  focusConfirm: true,
+  preConfirm: () => {
+    const login = Swal.getPopup().querySelector('#login').value
+    const password = Swal.getPopup().querySelector('#password').value
+    if (!login || !password) {
+      Swal.showValidationMessage(`Please enter login and password`)
+    }
+    return { login: login, password: password }
+  }
+}).then((result) => {
+    var res = httpGet("https://clarityworkshop.n3rdl0rd.repl.co/login/"+result.value.login+"/"+result.value.password);
+    if(res == "ok"){
+      localStorage.setItem('user', result.value.login);
+             window.location.reload();
+
+    }
+
+
+
+
+      
+  })
+        }
+
+      function submitTime(timemillis){
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+
+        if(!urlParams.has('id')){
+          return false;
+        }
+      }
+  function signout(){
+    localStorage.setItem("user", null);
+
+
+    document.getElementById("signinbutton").innerText = "Sign In";
+    document.getElementById("signinbutton").onclick = signin;
+    
+   window.location.href=window.location.href;
+  }
+
+  function signedin(){
+    return localStorage.getItem("user");
+  }
+
+      window.onload = function(){
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        if(signedin() == "null" || signedin() == null){
+          document.getElementById("buttoncontainer").innerHTML = document.getElementById("buttoncontainer").innerHTML + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=\"button-62\" role=\"button\" href=\"#\" id=\"signinbutton\" onclick=\"signin()\">Sign In</a>";
+        } else {
+          document.getElementById("buttoncontainer").innerHTML = document.getElementById("buttoncontainer").innerHTML + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class=\"button-62\" role=\"button\" href=\"#\" id=\"signinbutton\" onclick=\"signout()\">Sign Out</a>";
+        }
+        if(urlParams.has('id')){
+          document.getElementById("canvas").style.display = "none";
+          const gameId = urlParams.get('id');
+          const contButtons = document.getElementById("instruct");
+
+          contButtons.innerHTML = contButtons.innerHTML + `<br/><br/><a href="https://clarity.n3rdl0rd.repl.co/level.html?id={id}">Back to Workshop</a><br/>`.replace("{id}", gameId);
+          
+          const lvlCode = httpGet("https://clarityworkshop.n3rdl0rd.repl.co/levelById/"+gameId);
+          loadFromParam(lvlCode);
+          document.getElementById("canvas").style.display = "block";
+ 
+        }
+      }
+
+      function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+
+      function loadFromParam(text){
+
+   var decompressed = LZString.decompressFromBase64(text);
+    map.data=JSON.parse(decompressed);game.load_map(map);game.current_map.keys[10].solid = 1;game.current_map.keys[10].colour = '#555';
+      }
+
+      
+
+      
+      function load(){
+        
+       navigator.clipboard.readText()
+  .then(text => {
+    
+    console.log('Pasted content: ', text);
+   var decompressed = LZString.decompressFromBase64(text);
+    console.log(JSON.parse(decompressed));
+    map.player.x = 1;
+    map.player.y = 1;
+    map.data=JSON.parse(decompressed);game.load_map(map);game.current_map.keys[10].solid = 1;game.current_map.keys[10].colour = '#555';
+  })
+  .catch(err => {
+    console.error('Failed to read clipboard contents: ', err);
+    alert('Error: Failed to read level data (Error Code: Amogus)');
+  }); 
+      }
+
+
+      document.onkeyup = function(e) {
+  if (e.ctrlKey && e.altKey && e.which == 89) {
+    var cheatCode = prompt("enter dev command:");
+    if(cheatCode == "gamingchair"){
+      game.current_map.scripts.death = "";
+    } else if(cheatCode == "makehaste"){
+      game.universalSpeed = true;
+    } else if(cheatCode == "reverthaste"){
+      game.universalSpeed = false;
+    } else if(cheatCode == "fartsloudly"){
+      alert("fart")
+    }
+  }
+};
+
+
+
+
+
+  
+        
+      
+        window.requestAnimFrame =
+            window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            function(callback) {
+                return window.setTimeout(callback, 1000 / 60);
+        };
+
+        var canvas = document.getElementById('canvas'),
+            ctx    = canvas.getContext('2d');
+
+        canvas.width = 480;
+        canvas.height = 480;
+        
+        /* Customisable map data */
+      // Begin EDITOR and MAIN similar code
+      var wallimg = new Image();
+      wallimg.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAADNJREFUOE9j9PT0/M9AAWAEGcDDw0OWEV++fGEYNWA0DIZLOvD19f3PwcExwHmBLOuhmgCrKEex0FtLIQAAAABJRU5ErkJgggAA';
+     
+			var elevatorimg = new Image();
+      elevatorimg.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAG5JREFUOE9jbPJX/W+jwsdADjhy5xMD4+A2AOREEMDlRbxegGmGhQ02Q3AagK4ZlyFYDYBpfvD6C4OCKA9YLzIb2SVYDVhy/BlYU4ylFANyGCCLw1xEMBopCkSQLcPAAGwBh5xnCAYioQw2OAwAAKSneWF2TERPAAAAAElFTkSuQmCC'
+      
+			var bouncerimg = new Image();
+      bouncerimg.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAL1JREFUWEdjnOSx6D/DAALGQeeAQO0ImobH+qsrUMzHCIEBcwCtLUYPVlhIwENg1AFDJgTQUzF63BLrEbLTwIA5gJDFpIYEySEwYA4g1WJiQ4LoEBh1wGgIDHgITDvRC07YkrzSJLUTnn9+ClafZVGMVR/RuWDAHQBzPrEOIeRzmHlEh8CgcQC6Q3AlCFxxTrUWESwqBswBJGUFPIpJTgPUspjsRDj8HQDzIbFtOnJDZPD2jMj1EaX6Brx3DACes9+BlKvVwAAAAABJRU5ErkJgggAA'
+      
+			var unlockimg = new Image();
+      unlockimg.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAHNJREFUOE9jVIlo/89AAWAEGaDmkkiWEbf2zGcYNQBLGGwNkwAHqPeqFwQDFiMQQZo3bYPo8/PCrR9mOFYDYJLIhsEMBBkOMhinAek8EnCbQYpnfkF4AyQH4sNokKFY0wFIAQgga8blmdGEhBSIBFMMHgUAXTVqMR7uNBMAAAAASUVORK5CYIIA'
+      
+			var waterimg = new Image();
+      waterimg.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAANBJREFUWEftVrEWQDAM1MnGD9n8mtlg95FsJqYYSuQO1fJ07TW9XC9pXNU2cxZw5WVxGN19noAlbnAFYALyVtMwHp5BcdbFsr8qgAZGcTQBOWC51lIIvXijQDIE2Ayu4tOpAjYT1owa/rQC0QmgphWcVj2nFUiGAOsdH39ZgZ9AMAXYMkOJ+HFVDzxGoO673Znw7l/PV0gSdNEJhB5KLW+8pw+gpkRx6kSkSYYGRnE0AfTzYauH9sDdQytNwHI1ux+fgDQi9u2sTFEzrp0wFoEF5tyeUaMzMqsAAAAASUVORK5CYIIA';
+      
+			var goalimg = new Image();
+      goalimg.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAK9JREFUWEdjbI6R/c8wgIBx0DmgpoydpuHR0vUTxXyMEBgwB9DaYvRghYUEPASGnAPUL78Be8p6AQeYntfLQ1LaoTgE6O4AmIXo3qRbCNDdAf9+vwV7VvMG/oKSZiEw4A7AlaTRo4JmITBoHYDusKTiLwNTDsAcMuqA0RAYDYHREBiwEIBZjF4yEtsyorhFNOAOIKkBiEUxxSFAdQfADKR183zw9owoDVJy9Q947xgAE4XdgWlb6HsAAAAASUVORK5CYIIA';
+			
+			var deathimg = new Image();
+			deathimg.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAb9JREFUWEfNlz1OxDAQhWNptQ0H2JZqRQMNRwAajsDeggZuQMctOAI0cARooKOi3SugSF4Rz3OULxpZkVCcFOs4drxv3rz5SYgXTWz+rk332zR7Gy9t1PBmN7fbdPP4nUabt9c/3XT1oXOOhwdoP44NywEgZLL8zCwF4my5GNP6brjfZQRM9AxUByDfCsgm+TRfe/MpfJ/XP00T1AoZ1NzO6RlYDACzvD0fQs/q9iwiQ9zHKLP1MQNLA7B6QTyXtCHL6dIn08ipbTCtFBmYD4CHnBmMlnnq95hyo6AagAerBQKgOKaKnRqQM6O3v5BXQqwO4H2dqqHiGD5qrDa09+tuJYtSPtZ70oLHpBiENkJcDAD68PV3+OQqMaAMqcyY58wXjA5H5D0D1QA8b5MGqNaj9KA9IbLhnDVixIjTCemUEKsDUE/oJSISMLVYSUtOfhl3REy1swNQT/iFf1YVQ6+o3k+7c55QFOgc9Iy9BuiC2QEoEQnSHeJfgEo1ghnUc6WbCasBmBoFXn+gjke+Zj8gA1FzpkfBvwNgImLfX+ps6PtSPhl9GVUHcGMdkXxX6gFLvuX7/MoWQ5YfQqwM4ADxGE162R2WywAAAABJRU5ErkJgggAA'
+      
+			var saltwaterimg = new Image();
+      saltwaterimg.src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAABOFJREFUWEeNV01PHFcQ7F4MKzNrJUQsx7XhT/kOl/BPcssfMDdI5Bu/COQcTcQe2EUClH1RV1f36wFhvELs7Mz76NddVV2jJxdnTaQJPk3tH36pirSmYndEeQ/DFH8xxZ75td2PdURWN/9iyV8OF7KlKq2J6EZFtmytiUjbYLweX3yJbXwQ1/JALABfFEFhLxXNTRmzzWo+GsE2kTUD2Dv6KLqxhVU2TWVic224rWSXx+cWQElA7qaijUFgfdvAU2MbZJwZKCeW7NiwCIRbvPjSk4svsZ6fgGnIm5ziuUAemBXPDUrlBfCpGaxHEqV4NYDj8zNkYGe2iwWe1vd+JluJh2pRW1GZDrtY+GF175sSEnbhAVkJfHNfgdjAQIbK06FoyEBTBGBjn1ZrBx+B1wHmR5x+GEQ2Ig/rewcRNo7NIhX8DgQxq3mOkg4G0Gv129FCWpskzJGIhj0R1PLqH0wfDvZxP0CLQ6nhJhJnWSSTSlacRJ4bxGUgtB+J2sMFq9wXiFVt8dtrD2A238cxrTwJ4lEQzcvD1HtcMTJ2Fy9B5fHqu/P3tc+AjXkKrOe089M7Cl+AMYHaJYfpET05P3OyEVGrm5ufCKALVKaSBAqdSqECUDkeO401S0/OnYY+JAjVZciP+0wpVWQ6DGLC9nS35swuWnE6n+uRvdsdRCcij+t1lgWPnYbBcA/Py1YUsFDJQ2yyDdaoPN05G7pCUBGzzI7UnWEXmTCWVWYhA13cmQWit9O4ZyaaQAjM3qeFHxK1D/G270mXbG1yS/YAvNlnrBeYFCddHFQc8QwLISh+OwL49fCjs52p9qelnOgbKsvrbyP2xD7MAPcsTYVwcXQjnVRHAJmgFZXV9x+DNk4xO9gnW6oOIAOOgfwUqsZJxs2nJkblLdZkAPM5LkPWHdcmxRSiZEJy2+TYkRRNx1coAWTnc+BGm8wGRdp7W+HgmM+DlgyUPlqz4CV02Q1whh8IbwIY9zzCL0SscBtR0I4N3LP5kQGfwFOjO77Hb+N5NDIIClUjeQEKdqFxkobw+oY1g9vopgo9yBK4Unm+SAnw3O6Ct8GNFH2mNJsMw6/Pg5ZVIZvK9vBeNhOR/6AfInp6+Xc/k4rAPYnIMpvOnDbL880+lsLT/WRgo4+Ap6hupdA3vCICGKPTO1y03dnBnH7wGRgtZ2Mv1elfdCHKE2UM1kA/jNqf//yj4johbrztiC8ARfZ7bfEzXGUxMdnzYVqIr+IfI5DXA5jv024xjQmmonLVWo36SRVTChnpHa4s2j67YT9htOWw1/FkZzYgO7BsrG23bd2qo0kRvM6ahHC3boEN48/xxVnrnc/1nsF219tUprZws3Z67y4oRIaEgBHVhq5n4Hs0lNceQZMb9j7cktY3o3Qy1WZTwbL7HS2ynUJwNiqwkPwsr9h0DEMEaggh6dZblTHupSEpzClvYWtatT10v6KsIakm2boly6trhDJQ+6t2W2b8kNSc6AXdsrtqPFe+fG7d7w3LFl0v9H/sEaiSFD7Yf5QgG4QbzExZUqwz9a03nW5aO11j/c5Wui4D4e+XX+H6IbnZhEI/O53Cb3hwHBjeoL79sMlMZ4O/aRlrikGJN6doWHp6+ReO97gydBO4nDB6Ey5alG/NjKq38qitNTOnLZpOmj72nDxAk/8BxWkkNI6CRLAAAAAASUVORK5CYII=";
+			
+			var antibounceimg = new Image();
+			antibounceimg.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAALFJREFUWEftl0EOhTAIRPUaPWFP3mt8E5O64Ie8QWPFWLcN8DoMqGut9bc8+KxpAEopQ3Vore31DgUmQDoFeo+6MaKAFI8eoATkWIoPA6hK2MJeXH6ATh69kW2N5x1UIA0AgXhmpKmRFUgDoILQzW2e8LvAM6U6phPgtAIkvTr/7wP47iZUb257r8bhJlQTDQNQN5y3MW18WIHhAPTJdfUcFbhagOInwJ8CJNld54//HW99A/sBTxqtNwAAAABJRU5ErkJgggAA';
+			
+			var spedimg = new Image();
+			spedimg.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAALNJREFUWEftl0sKwCAMBeNle4PSHqHgEXsYS5FsBHlN/CRCXXRTIePkGTAcGyUiomt/v/PWGXOtYA6Q7mzAaoUfYFkDnGKUHXS71BlwD4BOzuaGGRgGgNR/Law24BZAevLuBoYD1NRrC4sNuAWYNglR+msgqEXqQcQFW1uzLkDrycW3oOyxOwAUtlpI1RkoDUwD6FVYnQE3AFrlZRbEGWADZgBo9kv/iw1IC6D99o9T69fxAyaci01twl6CAAAAAElFTkSuQmCC'
+
+			var airimg = new Image();		
+			airimg.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAADJJREFUOE9jrK+v/8/JyclADvj+/TsDY0dHx39yNMP0jBrAMBqIDKNhAMoPlOcFSrMzAD6dL0uPtm9RAAAAAElFTkSuQmCC'
+
+			var tarimg = new Image();
+			tarimg.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAQBJREFUOE+NU10LgkAQ9BQCKRQii6AIol4K+gvS//8LvfUQUgQGIQRqzMKe231o+7LHns7Ozs6p1ezQpuMsQJTvO2UZfMc18xvlAlgvd8H1drHA4jAL4klI9bpuKDsBrD89BQASAA6juBthmiyoQxSFupNrPM3gn5kBini+CsqsjdrP87ZqOvFM0Rj8UwXEUgZqNAKKUjgJ4qPOQBaAqQd/KBvIMwGYawMDs7OPlWbAncAAmnCWgkkz8b06bvJ2aE6XU/UWWESTtmTALJIktRyqRxhS3qULGem0PdMaYZC+R8VG4jfAY/+I6OsizYPREGw+vcZHUZLT4H/52nDuE/kLky2YbjxyP0sAAAAASUVORK5CYIIA'
+
+			var sandimg = new Image();
+			sandimg.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAQ5JREFUOE9jPD4p4r+anBgDCNx69ApMIwOYHEwMXQ0jNgP4+fgZPn76iGHY0zdfGYLNRMHi7/7wgGmsBmDoxCEAMhBsAIjhaKQI94KFEhfYBiGWL3CbsHkP7gJi/AwyFARO3PsGpmFhw7imzve/tAg33Az0QINJ7D93H+xKZAASA3sBJIgccMiG4HI6zCAMA9DDA6YQ2QJkNtgA9GgDuQDdZlyugrsAZhPIBaAwgdHIAYacmGDyjG835P0n5E9sKRUeC7BARHc2sgtgrnj54SdGCoV7gVDIYwsXcEL6vyUJHI2gBIIvU8ESEiwPwLyNEoi4bEFOPCCvgQAs8cGj8dq9Z+CUBkr/yLkNxMYXyAB6KrirkPXw4QAAAABJRU5ErkJgggAA'
+
+      var checkpointimg = new Image();
+			checkpointimg.src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAIhJREFUOE9jZM9Z/Z+BAsAIM+Cnsi1JxrDfPQxWDzaAVM0wm0CG4DXAufIWg5xHGMN8+wtYXYfTAJBGGCDZAGTNIENINsC4fhbYcoFfDmCaZANgTocZpOc0jfQwQA6xxIMGI9oAkP9hAFtiIpgS/TfpwA3Y6HcFIzXCDQDJkJofUDITSdkQTTEAv7Fy4Z5FYKEAAAAASUVORK5CYII=";
+
+			var lockedimg = new Image();
+			lockedimg.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAC5JREFUOE9jtHWP/c9AAWAEGcArIEaWEZ8/vGIYNWA0DEbTAQMD9cKArKwI1QQApWdIEfa7468AAAAASUVORK5CYIIA'
+
+
+      window.start_time = performance.now();
+			//map
+        var map = {
+        
+            tile_size: 16,
+            
+            
+            keys: [
+              // Void
+                {id: 0, colour: '#333', solid: 0},
+              // Air
+                {id: 1, colour: '#888', solid: 0, img:airimg},
+              // Platform
+                {id: 2,colour: '#555',solid: 1,bounce: 0.35, img: wallimg},
+              // Swim
+                {id: 3,colour: 'rgba(121, 220, 242, 0.4)',friction: {x: 0.9,y: 0.9},gravity: {x: 0,y: 0.1},jump: 1,fore: 1, img:waterimg},
+              // Elevator
+                {id: 4,colour: '#b37859', gravity: {x: 0,y: -0.1}, jump: 1, img:elevatorimg},
+              // Bounce
+                {id: 5,colour: '#E373FA',solid: 1,bounce: 1.1, img:bouncerimg},
+              // AntiBounce
+                {id: 6,colour: '#666',solid: 1,bounce: 0, img:antibounceimg},
+              // Color Changer Random
+                {id: 7,colour: '#73C6FA',solid: 0,script: 'change_colour'},
+              // Goal
+                {id: 8,colour: '#FADF73',solid: 0,script: 'next_level', img:goalimg},
+              // Die
+                {id: 9,colour: '#C93232',solid: 0,script: 'death', img:deathimg},
+              // Unlockable Wall
+                {id: 10,colour: '#555',solid: 1, img:lockedimg},
+              // Unlock Tile
+                {id: 11,colour: '#0FF',solid: 0,script: 'unlock', img:unlockimg},
+              // Saltwater
+                {id: 12, colour: 'rgba(121, 220, 242, 0.4)', friction: {x: 0.9,y: 0.95}, gravity: {x: 0,y: -0.07},jump: 1,fore: 1, img:saltwaterimg},
+              // Speed Zone
+                {id: 13, colour: 'rgb(255, 255, 0)', solid:0, fore: 1, boost:1, img:spedimg},
+							//Tar
+							  {id: 14, colour: '#453a4f',  friction: {x:0.3, y: 0.1}, gravity: {x: 0,y: 2}, jump: 1, fore: 1, img:tarimg},
+							//Quick Sand
+								{id: 15, colour: '#edb06e',  friction: {x:0.6, y: 0.5}, gravity: {x: 0,y: 0.3}, jump: 1, fore: 1, img:sandimg},
+
+              {id: 16,colour: '#C93232',solid: 0,script: 'checkpoint', img:checkpointimg},
+
+              {id: 17, colour: "#ff9500", solid:0, script:'orangeportal'},
+
+              {id:18, colour: "#00a6ff", solid:0, script:"blueportal"},
+
+
+         ],
+          // End EDITOR and MAIN similar code
+        
+            
+            data: [
+                [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 6, 6, 6, 6, 6, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 1, 1, 1, 1, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 4, 2, 2, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 8, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 4, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 4, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 4, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 2, 2, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 4, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 2, 2, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 4, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 8, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 6, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 9, 9, 9, 2, 10, 10, 10, 10, 10, 10, 1, 1, 1, 1, 1, 1, 1, 11, 2, 2, 2, 2, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 10, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0],
+                [2, 6, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0],
+                    
+                [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 0, 0, 0, 0, 0],
+                [2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 6, 6, 6, 2, 2, 2, 2, 2, 2, 6, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0],
+                [2, 1, 1, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0],
+                [2, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0],
+                [2, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 2, 5, 5, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+        
+            /* Default gravity of the map */
+            
+            gravity: {
+                x: 0.0,
+                y: 0.3
+            },
+            
+            /* Velocity limits */
+        
+            vel_limit: {
+                x: 12345676789,
+                y: 15.8
+            },
+        
+            /* Movement speed when the key is pressed */
+            
+            movement_speed: {
+                jump: 6,
+                left: 0.3,
+                right: 0.3
+            },
+            
+            /* The coordinates at which the player spawns and the colour of the player */
+        
+            player: {
+                x: 1,
+                y: 1,
+                colour: '#FF8800',
+            },
+            
+            /* scripts refered to by the "script" variable in the tile keys */
+        
+            scripts: {
+                change_colour: 'this.player.colour = "#"+(Math.random()*0xFFFFFF<<0).toString(16);',
+                /* you could load a new map variable here */
+                next_level: 'this.load_map(map);this.current_map.keys[10].solid = 1;this.current_map.keys[10].img = lockedimg;var timemillis = performance.now() - window.start_time;window.start_time = performance.now(); Swal.fire({title:"Level Completed!", html: "<i>"+winmsgs[Math.floor(Math.random()*winmsgs.length)] + "</i><br><br><b>Your time: "+(timemillis*0.001).toFixed(2)+" seconds</b>", });',
+                death: 'this.load_map(map);this.current_map.keys[10].solid = 1;this.current_map.keys[10].img = lockedimg;',
+                unlock: 'this.current_map.keys[10].solid = 0;this.current_map.keys[10].img = airimg;',
+                checkpoint:
+                'this.current_map.player.x = Math.round(this.player.loc.x/16);this.current_map.player.y = Math.round(this.player.loc.y/16);',
+                blueportal:'alert(JSON.stringify(this.getAllBlocks(18));',
+            }
+        };
+
+
+        
+        /* Setup of the engine */
+        var game = new Clarity();
+        game.set_viewport(canvas.width, canvas.height);
+        game.load_map(map);
+
+        /* Limit the viewport to the confines of the map */
+        
+        game.limit_viewport = true;
+
+        var Loop = function() {
+
+            ctx.fillStyle = '#333';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            game.update();
+            game.draw(ctx);
+        
+            // window.requestAnimFrame(Loop);
+    
+        };
+
+        var winmsgs = ["gg man", "Good job!", "Good job!", "speedrun wr go brr", "@N3rdL0rd on Replit.com!", "Spaceship Shutdown", "MatPat please cover our lore please please please", "no", "yes", "es6 standard typing plaese", "haha speling goo berrr", "when ze impustor is sus", "Also try Minecraft!", "amogus", "insert win message here", "nerdy!", "Roll a d20 for stamina!", "WOOT WOOT", "POOTIS BIRB", "beacuase", "liam is a level creator", "...", "1234567890qwertyuiop", "wasdijkl", "idk", "pootis.birb.com", "your mom!", "sus", "Roll a d6 for the speedrun WR!", "Roll a d20 for agility!", "Roll a d20 for fancyness!"];
+        /* Start */
+        
+        // Loop();
+
+
+        var interval = setInterval(Loop, 16.7);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<title id="title">Clarity Test - NaN</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="loaders.css">
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+  <script src="ClarityLevel.js"></script>
+<style>
+  
+	body,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: "Raleway", sans-serif;
+    color: #FFF
+    
+	}
+
+  .bkg{
+    background-color: #1d1b31;
+  }
+
+  .level{
+    border: 2px solid #d2bdff;
+	background-color: #3c2d52;
+
+        }
+
+  #container{
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+</style>
+
+<body class="bkg w3-content" style="max-width:1600px">
+
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<style>
+  A{text-decoration: none;}
+</style>
+<script>
+  function httpGet(theUrl)
+  {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+  }
+
+  function signin(){
+    var username = prompt("Username:");
+    var password = prompt("Password:");
+
+    var res = httpGet("https://clarityworkshop.n3rdl0rd.repl.co/login/"+username+"/"+password);
+    if(res == "ok"){
+      localStorage.setItem('user', username);
+    }
+      
+  }
+
+  function signout(){
+    localStorage.setItem("user", null)
+  }
+
+  function signedin(){
+    return localStorage.getItem("user")
+  }
+  
+  window.onload = function(){
+
+  }
+</script>
+  
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:15px">
+
+  <!-- Header -->
+  <header id="portfolio">
+
+    <div class="w3-container">
+    <h1><b id="levelname">Clarity Test - ERROR: NaN</b></h1>
+      
+    </div>
+    
+  </header>
+
+  
+  <div id="container">
+
+    <button onclick="signin()">signin</button>
+    <button onclick="signout()">signout</button>
+    <button onclick="alert(signedin())">signedin</button>
+  </div>
+
+
+<!-- End page content -->
+</div>
+
+
+</body>
+</html>

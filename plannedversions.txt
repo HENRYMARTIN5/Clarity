@@ -1,0 +1,62 @@
+ (Done) Update 0.1:
+Editor update - Added editor - Codename: Terraria
+
+ (Done) Update 0.2:
+Graphics Update - Added textures - Codename: OffBrandShaders
+Ideas: Arrow on bounce block, elevater should look like ladder, etc
+Planned block additions: Saltwater (done), Speed Block (done)
+
+ (Done) Update 1.0:
+Workshop Update - Added Level Library - Codename: NotASteamRipoff
+Ideas: Likes & dislikes, play count, leaderboard (all todo in multiplayer update)
+
+ (Done) Update Minor 1.0.0.1:
+Easter Egg Update - Add cheat codes, etc, Codename: RainbowUnicornFarts
+Ideas: Ctrl+A to open prompt, enter a command to cheat, for example: gamingChair for invincibility.
+
+ (Done) Update Minor 1.0.0.2:
+Account Update - Add accounts, required for publishing. Users can be banned from publishing levels via IP, Codename: logoutidiots
+
+ (Done) Update 1.0.1
+Saves Update - Adds 3 save slots for wip levels
+
+Update 1.0.2 - DELAYED
+Code Organization Update - make code easier to work with
+
+Update 1.0.3: 
+Leaderboard Update - added speedrun timer and level leaderboards
+
+Update 1.1:
+Scripting Update - Added Custom Blocks - Codename: CommandBlocks
+Ideas: Button, scriptable blocks, text block
+
+Update 1.2:
+Physics Update - Added Physics Blocks - Codename: SlimeBlocks
+Idea: Pushable blocks, gravity blocks
+
+Update 1.3: 
+Multyplayer - Added multyplayer support - Codename: HateGenerator
+Ideas: Multyplayer racing, enemies
+
+
+Misc. Block Ideas
+
+Coin Block - comes with coin, requires all coins in level collected to open
+
+Gravity Block - Changes Gravity
+
+1 way block (after texture update)
+
+2nd door block (and door activator)
+
+Ice - No friction! (delayed)
+Magma - Hot! Causes ball to bounce a random hieght on hit (1-3 blocks) Kills player if they hit more then 3 times in a row
+
+
+Bugs:
+None! Sweet!
+
+Fixed bugs:
+Unclockable wall, flag, and random color break when loading level
+
+

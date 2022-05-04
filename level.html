@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<title id="title">Clarity Workshop</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="loaders.css">
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+  <script src="ClarityLevel.js"></script>
+<style>
+  
+	body,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: "Raleway", sans-serif;
+    color: #FFF
+    
+	}
+
+  .bkg{
+    background-color: #1d1b31;
+  }
+
+  .level{
+    border: 2px solid #d2bdff;
+	background-color: #3c2d52;
+
+        }
+
+  #container{
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+</style>
+
+<body class="bkg w3-content" style="max-width:1600px">
+
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<style>
+  A{text-decoration: none;}
+</style>
+<script>
+  function httpGet(theUrl)
+  {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+  }
+  
+  window.onload = function(){
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    
+    if (!urlParams.has('id')){
+      alert("Failed to get level data. Error code: hahaUthought")
+    }
+    
+    var RawLvlData = httpGet("https://clarityworkshop.n3rdl0rd.repl.co/levelDataById/"+urlParams.get('id').toString());
+    var LvlData = JSON.parse(RawLvlData);
+
+    var templateStr = `
+    <h2><b>{title}</b></h2><h4>By {author}</h4><p>{desc}</p>
+Level ID: {id}
+
+<br/><br/>
+<a href="https://Clarity.n3rdl0rd.repl.co/?id={id}" class="w3-button w3-green w3-hover-opacity w3-round-xlarge">Play</a>
+
+    
+    `.replace("{title}", LvlData.name).replace("{desc}", LvlData.description).replace("{author}", LvlData.author).replace("{id}", LvlData.id.toString()).replace("{id}", LvlData.id.toString());
+    title.innerText = "Clarity Workshop - " + LvlData.name + " by " + LvlData.author;
+    document.getElementById("container").innerHTML = templateStr;
+  }
+</script>
+  
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:15px">
+
+  <!-- Header -->
+  <header id="portfolio">
+
+    <div class="w3-container">
+    <h1><b id="levelname">Clarity Workshop</b></h1><a href="https://clarity.n3rdl0rd.repl.co/workshop.html"><h2>&#8249;</h2></a><p></p>
+      
+    </div>
+    
+  </header>
+
+  
+  <div id="container">
+
+  <center>
+    <svg class="pl" viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<linearGradient id="pl-grad1" x1="1" y1="0.5" x2="0" y2="0.5">
+			<stop offset="0%" stop-color="hsl(313,90%,55%)" />
+			<stop offset="100%" stop-color="hsl(223,90%,55%)" />
+		</linearGradient>
+		<linearGradient id="pl-grad2" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0%" stop-color="hsl(313,90%,55%)" />
+			<stop offset="100%" stop-color="hsl(223,90%,55%)" />
+		</linearGradient>
+	</defs>
+	<circle class="pl__ring" cx="100" cy="100" r="82" fill="none" stroke="url(#pl-grad1)" stroke-width="36" stroke-dasharray="0 257 1 257" stroke-dashoffset="0.01" stroke-linecap="round" transform="rotate(-90,100,100)" />
+	<line class="pl__ball" stroke="url(#pl-grad2)" x1="100" y1="18" x2="100.01" y2="182" stroke-width="36" stroke-dasharray="1 165" stroke-linecap="round" />
+</svg>
+  </center>
+  </div>
+
+
+<!-- End page content -->
+</div>
+
+
+</body>
+</html>
