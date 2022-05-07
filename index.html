@@ -8,9 +8,8 @@
 	<script type="text/javascript" src="Clarity.js">
     
 	</script>
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 
   <script src="https://cdn.jsdelivr.net/gh/pieroxy/lz-string@master/libs/lz-string.min.js"></script>
   <link rel="stylesheet" href="style.css">
@@ -281,16 +280,13 @@
                 {id: 12, colour: 'rgba(121, 220, 242, 0.4)', friction: {x: 0.9,y: 0.95}, gravity: {x: 0,y: -0.07},jump: 1,fore: 1, img:saltwaterimg},
               // Speed Zone
                 {id: 13, colour: 'rgb(255, 255, 0)', solid:0, fore: 1, boost:1, img:spedimg},
-							//Tar
+							// Tar
 							  {id: 14, colour: '#453a4f',  friction: {x:0.3, y: 0.1}, gravity: {x: 0,y: 2}, jump: 1, fore: 1, img:tarimg},
-							//Quick Sand
+							// Quick Sand
 								{id: 15, colour: '#edb06e',  friction: {x:0.6, y: 0.5}, gravity: {x: 0,y: 0.3}, jump: 1, fore: 1, img:sandimg},
+              // Checkpoint
+                {id: 16,colour: '#C93232',solid: 0,script: 'checkpoint', img:checkpointimg},
 
-              {id: 16,colour: '#C93232',solid: 0,script: 'checkpoint', img:checkpointimg},
-
-              {id: 17, colour: "#ff9500", solid:0, script:'orangeportal'},
-
-              {id:18, colour: "#00a6ff", solid:0, script:"blueportal"},
 
 
          ],
@@ -337,8 +333,7 @@
                 [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 10, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0],
-                [2, 6, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0],
-                    
+                [2, 6, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0],                    
                 [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0],
                 [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 0, 0, 0, 0, 0],
                 [2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 6, 6, 6, 2, 2, 2, 2, 2, 2, 6, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0],
@@ -398,11 +393,10 @@
                 change_colour: 'this.player.colour = "#"+(Math.random()*0xFFFFFF<<0).toString(16);',
                 /* you could load a new map variable here */
                 next_level: 'this.current_map.player.x = 1; this.current_map.player.y = 1; this.load_map(map);this.current_map.keys[10].solid = 1;this.current_map.keys[10].img = lockedimg;var timemillis = performance.now() - window.start_time;window.start_time = performance.now(); Swal.fire({title:"Level Completed!", html: "<i>"+winmsgs[Math.floor(Math.random()*winmsgs.length)] + "</i><br><br><b>Your time: "+(timemillis*0.001).toFixed(2)+" seconds</b>", });',
-                death: 'this.load_map(map);this.current_map.keys[10].solid = 1;this.current_map.keys[10].img = lockedimg;',
+                death: 'this.load_map(map);this.current_map.keys[10].solid = 1;this.current_map.keys[10].img = lockedimg;Swal.fire({title:"You Died!", html: "<i><b>"+deathmsgs[Math.floor(Math.random()*deathmsgs.length)] + "</b></i>", });',
                 unlock: 'this.current_map.keys[10].solid = 0;this.current_map.keys[10].img = airimg;',
                 checkpoint:
                 'this.current_map.player.x = Math.round(this.player.loc.x/16);this.current_map.player.y = Math.round(this.player.loc.y/16);',
-                blueportal:'alert(JSON.stringify(this.getAllBlocks(18));',
             }
         };
 
@@ -429,6 +423,7 @@
     
         };
 
+        var deathmsgs = ["Whoops.","That wasn't supposed to happen…","My bad.","Get one shotted lol","Git gud","Please try again later.","Skill issue?","You look dumb now,don't you?","Dev needs to fix this","GG ez","That's all?","Time to repeat the process.","Here we go again…","Try not to do{that again next time.","Clearly,something happened that lead to your death.","Are you okay?","You'll recover.Someday.","This is the part where you yell at your screen.",":clown:","Why did you do{that?","Bro…","Seriously?","Well…","Yikes.","This is embarrassing.","Try not to ragequit.","Lol","Hahaha","That didn't work out.","Learn from your mistakes.","Mission failed.We'll get 'em next time.","Spartans never die.They just go M.I.A.","Ouch.","That's… bad…","Task failed successfully.","K.O.!","Wipeout!","FATALITY","Oof","Why?","Stop.Doing.That.","-15respect","That must've hurt.","What an ePiC fAiL","Return by death.","Were you expecting something?","What did you expect?","You died.","WASTED","OBLITERATED","BRUTALITY","Objective failed.","That happened.","Things aren't looking so bright.","Not everything is sunshine and rainbows,by the way.","Eliminated.","Respawning…","AAAAHHHHHHHHH","Welp.","There is an unnecessary amount of death lines in this game.","Wanna hear a joke?","Tip:Don't die.","Have you tried NOT dying?",":god me","/kill all … Oh,it worked.","The end.","FIN","Hello,player.","Good thing that I placed a bed for you to respawn at.","Take #2!","Alt+F4 to close your game.Just a useful reminder.","Time to unplug the router…","Please don't smash your monitor.","Your safety isn't guaranteed ¯_(ツ)_/¯","Not everything goes well in this game.","Perhaps I should nerf that…","Wrong button.","Misclick?","I know.It's not your computer.It's not lag.Or is it?","Pfft.","You died that easily?","I expected a little more,but okay.","Aaaaand that's a wrap.","That's all,folks!","Unlock God Mode for $49.99.","Vibe check.","Oops.","That was a mistake.","I guess I forgot to remove that.","Good game.","Simon says… rejoin!","Got you!","I'm honestly running out of ideas.","What do{I put here again?","Sample text here","Lorem ipsum dolor sit amet,consectetur adipiscing elit.Aliquam est nisl,posuere vitae lacus a,mattis ornare dui.Nunc consequat.","Looking for something?","You're back!","Sorry.","You died.","You'd still be alive if it weren't for[INSERT TEXT HERE]","FYI,you didn't have to die.","bad","noob","Next time.","Looks like somebody isn't getting their Winner Winner Chicken Dinner.","Alright,what happened now?","Get up on your feet.","*Sigh*… do you want me to turn on Baby Mode?"," 'Tis but a wound.","From zero to hero and then back to zero.","How… unfortunate.","I am inevitable.","Cut!"]
         var winmsgs = ["gg man", "Good job!", "Good job!", "speedrun wr go brr", "@N3rdL0rd on Replit.com!", "Spaceship Shutdown", "MatPat please cover our lore please please please", "no", "yes", "es6 standard typing plaese", "haha speling goo berrr", "when ze impustor is sus", "Also try Minecraft!", "amogus", "insert win message here", "nerdy!", "Roll a d20 for stamina!", "WOOT WOOT", "POOTIS BIRB", "beacuase", "liam is a level creator", "...", "1234567890qwertyuiop", "wasdijkl", "idk", "pootis.birb.com", "your mom!", "sus", "Roll a d6 for the speedrun WR!", "Roll a d20 for agility!", "Roll a d20 for fancyness!", "Hyperbole!", "I don't know what I'm doing with my life!", "Why am I still here?", "Hi.", "You know, I'm kinda bored.", "Why are we all still here?", "Really?", "Bro, you're wasting your life.", "Please please please please", "H̷̟̮̻͕̑̾͂͋̓͠E̶͇̫̪̗̿L̸̦͕̻̻̈́͐͋̀P̴̛͕͊͋͊͗̏̾͠ ̵̧̛̣͖͎͛̊̎M̵̛̖̈̏̃̀͛͠Ę̷̫̪̣̿̒̄͂̏̆"];
         /* Start */
         
