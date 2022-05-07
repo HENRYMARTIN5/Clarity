@@ -205,6 +205,8 @@ function idToColor(id){
     return "rgb(255, 255, 0)"
   } else if(id==16) {
     return "rgb(15, 29, 51)"
+  } else if(id==17) {
+    return "rgb(17, 34, 51)"
   }
 }
 
@@ -249,6 +251,8 @@ arr.forEach(v => {
 			arr2.push(13);
 		} else if (v.style.backgroundColor == "rgb(15, 29, 51)") {
       arr2.push(16);
+    } else if (v.style.backgroundColor == "rgb(17, 34, 51)") {
+      arr2.push(17);
     }
  
 	} else {
@@ -320,6 +324,8 @@ arr.forEach(v => {
 			arr2.push(13);
 		} else if (v.style.backgroundColor == "rgb(15, 29, 51)") {
       arr2.push(16);
+    } else if (v.style.backgroundColor == "rgb(17, 34, 51)") {
+      arr2.push(17);
     }
  
 	} else {
@@ -368,40 +374,43 @@ function fillAll(color){
   arr.forEach(v => {
     v.style.backgroundColor = color;
     var arr2 = [];
-      if(color){
+    var color2 = v.style.backgroundColor;
+      if(color2){
     //Conversion into tile ids
-    if(color == "rgb(85, 85, 85)"){
+    if(color2 == "rgb(85, 85, 85)"){
       arr2.push(2);
-    } else if(color == "rgb(136, 136, 136)") {
+    } else if(color2 == "rgb(136, 136, 136)") {
       arr2.push(1)
-    } else if(color == "rgb(51, 51, 51)"){
+    } else if(color2 == "rgb(51, 51, 51)"){
       arr2.push(0);
-    } else if(color == "rgba(121, 220, 242, 0.4)"){
+    } else if(color2 == "rgba(121, 220, 242, 0.4)"){
       arr2.push(3)
-    } else if(color == "rgb(179, 120, 89)"){
+    } else if(color2 == "rgb(179, 120, 89)"){
       arr2.push(4);
-    } else if(color == "rgb(227, 115, 250)"){
+    } else if(color2 == "rgb(227, 115, 250)"){
       arr2.push(5);
-    } else if (color == "rgb(102, 102, 102)"){
+    } else if (color2 == "rgb(102, 102, 102)"){
       arr2.push(6)
-    } else if (color == "rgb(201, 50, 50)"){
+    } else if (color2 == "rgb(201, 50, 50)"){
       arr2.push(9)
-    } else if (color == "rgb(115, 198, 250)"){
+    } else if (color2 == "rgb(115, 198, 250)"){
       arr2.push(12);
-    } else if (color == "rgb(0, 255, 255)"){
+    } else if (color2 == "rgb(0, 255, 255)"){
       arr2.push(11);
-    } else if (color == "rgb(85, 85, 102)") {
+    } else if (color2 == "rgb(85, 85, 102)") {
       arr2.push(10);
-    } else if (color == "rgb(250, 223, 115)"){
+    } else if (color2 == "rgb(250, 223, 115)"){
       arr2.push(8);
-    } else if (color == "rgb(69, 58, 79)"){
+    } else if (color2 == "rgb(69, 58, 79)"){
       arr2.push(14);	
-		} else if (color == "rgb(237, 176, 110)"){
+		} else if (color2 == "rgb(237, 176, 110)"){
 			arr2.push(15);
-    } else if (color == "rgb(255, 255, 0)"){
+    } else if (color2 == "rgb(255, 255, 0)"){
 			arr2.push(13);
-		} else if (color == "rgb(15, 29, 51)") {
+		} else if (color2 == "rgb(15, 29, 51)") {
       arr2.push(16);
+    } else if (v.style.backgroundColor == "rgb(17, 34, 51)") {
+      arr2.push(17);
     }
  
 	} else {
@@ -527,6 +536,8 @@ function populate(size) {
 			arr2.push(13);
 		} else if (div.style.backgroundColor == "rgb(15, 29, 51)") {
       arr2.push(16);
+    } else if (div.style.backgroundColor == "rgb(17, 34, 51)") {
+      arr2.push(17);
     }
  
 	} else {
@@ -572,6 +583,8 @@ function populate(size) {
 			arr2.push(13);
 		} else if (div.style.backgroundColor == "rgb(15, 29, 51)") {
       arr2.push(16);
+    } else if (div.style.backgroundColor == "rgb(17, 34, 51)") {
+      arr2.push(17);
     }
  
 	} else {
