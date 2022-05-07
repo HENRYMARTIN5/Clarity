@@ -487,25 +487,28 @@ Clarity.prototype.update = function () {
   this.update_player();
 };
 
-Clarity.prototype.getAllBlocks = function (id){
-  var map = this.current_map;
-  var arr = [];
-  i1 = 0;
-  i2 = 0;
-  map.forEach(v=>{
-    i1=0;
-    v.forEach(c=>{
-      if (c == id){
-        arr.push({id:id,x:i1,y:i2,px:i1*16,py:i2*16});
-      }
-      i1++;
-    });
-    i2++;
-  });
-}
-
 Clarity.prototype.draw = function (context) {
 
   this.draw_map(context, false);
   this.draw_player(context);
 };
+
+Clarity.prototype.detectBelow = function (id){
+  var map = this.current_map.data;
+  var playerX = Math.round(this.player.loc.x/16);
+  var playerY = Math.round(this.player.loc.y/16);
+
+  var tile = map[playerY+1][playerX];
+
+  return tile.id == id;
+}
+
+Clarity.prototype.getBelow = function (){
+  var map = this.current_map.data;
+  var playerX = Math.round(this.player.loc.x/16);
+  var playerY = Math.round(this.player.loc.y/16);
+
+  var tile = map[playerY+1][playerX];
+
+  return tile.id;
+}
