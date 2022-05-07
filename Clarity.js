@@ -264,10 +264,13 @@ Clarity.prototype.move_player = function () {
   }
 
   if (tile.friction) {
-
     this.player.vel.x *= tile.friction.x;
     this.player.vel.y *= tile.friction.y;
+  } else if (this.detectBelow(17)){
+    this.player.vel.x *= 1.08;
   }
+
+
 
   var t_y_up = Math.floor(tY / this.tile_size);
   var t_y_down = Math.ceil(tY / this.tile_size);
