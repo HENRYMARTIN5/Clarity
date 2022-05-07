@@ -266,8 +266,10 @@ Clarity.prototype.move_player = function () {
   if (tile.friction) {
     this.player.vel.x *= tile.friction.x;
     this.player.vel.y *= tile.friction.y;
+    this.current_map.vel_limit.x = 15.8;
   } else if (this.detectBelow(17)){
-    this.player.vel.x *= 1.08;
+    this.player.vel.x *= 1.10;
+    this.current_map.vel_limit.x = 12;
   }
 
 
