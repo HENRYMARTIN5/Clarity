@@ -503,6 +503,13 @@ Clarity.prototype.detectBelow = function (id){
   var playerX = Math.round(this.player.loc.x/16);
   var playerY = Math.round(this.player.loc.y/16);
 
+  if (playerY > map.length || playerX > map.length){
+    return false;
+  } else if (playerY < 0 || playerX < 0){
+    return false;
+  }
+
+
   var tile = map[playerY+1][playerX];
 
   return tile.id == id;
@@ -512,6 +519,12 @@ Clarity.prototype.getBelow = function (){
   var map = this.current_map.data;
   var playerX = Math.round(this.player.loc.x/16);
   var playerY = Math.round(this.player.loc.y/16);
+
+  if (playerY > map.length || playerX > map.length){
+    return false;
+  } else if (playerY < 0 || playerX < 0){
+    return false;
+  }
 
   var tile = map[playerY+1][playerX];
 
