@@ -498,12 +498,14 @@ Clarity.prototype.draw = function (context) {
   this.draw_player(context);
 };
 
+const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+
 Clarity.prototype.detectBelow = function (id){
   var map = this.current_map.data;
   var playerX = Math.round(this.player.loc.x/16);
   var playerY = Math.round(this.player.loc.y/16);
 
-  if (playerY > map.length || playerX > map.length){
+  if (playerY >= map.length-1 || playerX >= map.length){
     return false;
   } else if (playerY < 0 || playerX < 0){
     return false;
@@ -520,7 +522,7 @@ Clarity.prototype.getBelow = function (){
   var playerX = Math.round(this.player.loc.x/16);
   var playerY = Math.round(this.player.loc.y/16);
 
-  if (playerY > map.length || playerX > map.length){
+  if (playerY >= map.length-1 || playerX >= map.length){
     return false;
   } else if (playerY < 0 || playerX < 0){
     return false;
