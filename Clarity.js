@@ -464,7 +464,7 @@ Clarity.prototype.update_player = function () {
           // Same thing, but to the left
           this.player.vel.x -= this.current_map.movement_speed.jump;
         }
-        this.player.vel.y -= this.current_map.movement_speed.jump + this.current_map.movement_speed.jump*0.6;
+        this.player.vel.y -= this.current_map.movement_speed.jump + this.current_map.movement_speed.jump*0.9;
       } else {
         this.player.vel.y -= this.current_map.movement_speed.jump;
       }

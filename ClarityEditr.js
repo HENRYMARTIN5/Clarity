@@ -207,6 +207,8 @@ function idToColor(id){
     return "rgb(15, 29, 51)"
   } else if(id==17) {
     return "rgb(17, 34, 51)"
+  } else if(id==18) {
+    return "rgb(85, 85, 136)"
   }
 }
 
@@ -253,6 +255,8 @@ arr.forEach(v => {
       arr2.push(16);
     } else if (v.style.backgroundColor == "rgb(17, 34, 51)") {
       arr2.push(17);
+    }else if (v.style.backgroundColor == "rgb(85, 85, 136)") {
+      arr2.push(18);
     }
  
 	} else {
@@ -326,6 +330,8 @@ arr.forEach(v => {
       arr2.push(16);
     } else if (v.style.backgroundColor == "rgb(17, 34, 51)") {
       arr2.push(17);
+    }else if (v.style.backgroundColor == "rgb(85, 85, 136)") {
+      arr2.push(18);
     }
  
 	} else {
@@ -411,6 +417,8 @@ function fillAll(color){
       arr2.push(16);
     } else if (v.style.backgroundColor == "rgb(17, 34, 51)") {
       arr2.push(17);
+    } else if (v.style.backgroundColor == "rgb(85, 85, 136)"){
+      arr2.push(18);
     }
  
 	} else {
@@ -538,6 +546,8 @@ function populate(size) {
       arr2.push(16);
     } else if (div.style.backgroundColor == "rgb(17, 34, 51)") {
       arr2.push(17);
+    } else if (div.style.backgroundColor == "rgb(85, 85, 136)") {
+      arr2.push(18);
     }
  
 	} else {
@@ -585,6 +595,8 @@ function populate(size) {
       arr2.push(16);
     } else if (div.style.backgroundColor == "rgb(17, 34, 51)") {
       arr2.push(17);
+    }else if (div.style.backgroundColor == "rgb(85, 85, 136)") {
+      arr2.push(18);
     }
  
 	} else {
