@@ -294,12 +294,23 @@ Clarity.prototype.move_player = function () {
   var right2 = this.get_tile(t_x_right, y_near2);
 
 
+  if (this.detectSides(18).result){
+    // make player fall slowly
+    this.player.vel.y *= 0.5;
+  }
+
   if (tile.jump && this.jump_switch > 15) {
 
     this.player.can_jump = true;
 
     this.jump_switch = 0;
 
+  } else this.jump_switch++;
+
+  if (this.detectSides(18).result && this.jump_switch > 15) {
+    this.player.can_jump = true;
+
+    this.jump_switch = 0;
   } else this.jump_switch++;
 
   this.player.vel.x = Math.min(Math.max(this.player.vel.x, -this.current_map.vel_limit.x), this.current_map.vel_limit.x);
@@ -443,7 +454,21 @@ Clarity.prototype.update_player = function () {
 
     if (this.player.can_jump && this.player.vel.y > -this.current_map.vel_limit.y) {
 
-      this.player.vel.y -= this.current_map.movement_speed.jump;
+      
+      
+      if (this.detectSides(18).result){
+        if(this.detectSides(18).side == "left"){
+          // Bump player off wall to the right using velocity
+          this.player.vel.x += this.current_map.movement_speed.jump;
+        } else {
+          // Same thing, but to the left
+          this.player.vel.x -= this.current_map.movement_speed.jump;
+        }
+        this.player.vel.y -= this.current_map.movement_speed.jump + this.current_map.movement_speed.jump*0.6;
+      } else {
+        this.player.vel.y -= this.current_map.movement_speed.jump;
+      }
+
       this.player.can_jump = false;
     }
   }
@@ -515,6 +540,30 @@ Clarity.prototype.detectBelow = function (id){
   var tile = map[playerY+1][playerX];
 
   return tile.id == id;
+}
+
+Clarity.prototype.detectSides = function (id){
+  var map = this.current_map.data;
+  var playerX = Math.round(this.player.loc.x/16);
+  var playerY = Math.round(this.player.loc.y/16);
+
+  if (playerY >= map.length-1 || playerX >= map.length){
+    return false;
+  } else if (playerY < 0 || playerX < 0){
+    return false;
+  }
+
+  var tileA = map[playerY][playerX+1];
+  var tileB = map[playerY][playerX-1];
+
+  var sideDetected;
+  if (tileA.id == id){
+    sideDetected = "right";
+  } else if (tileB.id == id){
+    sideDetected = "left";
+  }
+
+  return {result: tileA.id == id || tileB.id == id, side: sideDetected};
 }
 
 Clarity.prototype.getBelow = function (){
