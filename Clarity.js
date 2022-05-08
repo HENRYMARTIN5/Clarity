@@ -8,7 +8,7 @@ var Clarity = function () {
   this.tile_size = 16;
   this.limit_viewport = false;
   this.jump_switch = 0;
-
+  this.allowWallJump = true;
   this.viewport = {
     x: 200,
     y: 200
@@ -19,11 +19,28 @@ var Clarity = function () {
     y: 0
   };
 
-  this.key = {
+  this.keyInternal = {
     left: false,
     right: false,
     up: false
   };
+
+  this.key = new Proxy(this.keyInternal, {
+    set: function (target, key, value) {
+        if(key == "up"){
+          var oldValue = target[key];
+          var newValue = value;
+          if(newValue != oldValue){
+            this.allowWallJump = true;
+          }
+          else {
+            this.allowWallJump = false;
+          }
+        }
+        target[key] = value;
+        return true;
+    }
+  });
 
   this.player = {
 
@@ -39,6 +56,9 @@ var Clarity = function () {
 
     can_jump: true
   };
+
+
+
 
   window.onkeydown = this.keydown.bind(this);
   window.onkeyup = this.keyup.bind(this);
@@ -296,7 +316,7 @@ Clarity.prototype.move_player = function () {
 
   if (this.detectSides(18).result){
     // make player fall slowly
-    this.player.vel.y *= 0.5;
+    this.player.vel.y *= 0.8;
   }
 
   if (tile.jump && this.jump_switch > 15) {
@@ -445,18 +465,23 @@ Clarity.prototype.move_player = function () {
 Clarity.prototype.update_player = function () {
 
   if (this.key.left) {
-
     if (this.player.vel.x > -this.current_map.vel_limit.x)
       this.player.vel.x -= this.current_map.movement_speed.left;
   }
 
+
+
+ 
+
+
+
   if (this.key.up) {
 
-    if (this.player.can_jump && this.player.vel.y > -this.current_map.vel_limit.y) {
+    if (this.player.can_jump && this.player.vel.y > -this.current_map.vel_limit.y ) {
+      if (this.detectSides(18).result && !this.isGroundSolid() && this.allowWallJump){
+        
+        
 
-      
-      
-      if (this.detectSides(18).result){
         if(this.detectSides(18).side == "left"){
           // Bump player off wall to the right using velocity
           this.player.vel.x += this.current_map.movement_speed.jump;
@@ -464,14 +489,16 @@ Clarity.prototype.update_player = function () {
           // Same thing, but to the left
           this.player.vel.x -= this.current_map.movement_speed.jump;
         }
-        this.player.vel.y -= this.current_map.movement_speed.jump + this.current_map.movement_speed.jump*0.9;
+        this.player.vel.y -= this.current_map.movement_speed.jump;
       } else {
         this.player.vel.y -= this.current_map.movement_speed.jump;
       }
-
+      
       this.player.can_jump = false;
     }
   }
+
+
 
   if (this.key.right) {
 
@@ -481,6 +508,8 @@ Clarity.prototype.update_player = function () {
 
   this.move_player();
 };
+
+
 
 Clarity.prototype.draw_player = function (context) {
 
@@ -579,5 +608,9 @@ Clarity.prototype.getBelow = function (){
 
   var tile = map[playerY+1][playerX];
 
-  return tile.id;
+  return tile;
+}
+
+Clarity.prototype.isGroundSolid = function (){
+  return this.getBelow().solid;
 }
