@@ -119,9 +119,6 @@ function sendJSON(data) {
   function signout(){
     localStorage.setItem("user", null);
 
-
-    document.getElementById("signinbutton").innerText = "Sign In";
-    document.getElementById("signinbutton").onclick = signin;
     
    window.location.href=window.location.href;
   }
@@ -157,16 +154,17 @@ function sendJSON(data) {
         }
   
   function submit(){
-    if(signedin() != "null" || signedin() != null){
-        var payload = {
+    if(signedin() == "null" || signedin() == null){
+      signin();
+      return;
+
+    } else{
+      var payload = {
     "code": lvlcodeinp.value, "name": lvlnameinp.value, "desc": lvldescinp.value, "author": signedin()
   }
   sendJSON(payload);
   alert("Submitted!");
   window.location.href="https://henrymartin5.github.io/Clarity/workshop.html";
-    } else{
-      swal.fire("You aren't signed in! Sign in on the homepage, then come back here to try again!");
-      return;
     }
   }
 </script>
