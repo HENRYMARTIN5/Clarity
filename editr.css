@@ -226,13 +226,44 @@ body{
 .container{
     --size: 4;
     height: 1000px;
+    width: 1000px;
     display: grid;
+    overflow: scroll;
     grid-template-columns: repeat(var(--size), 1fr);
     grid-template-rows: repeat(var(--size), 1fr);
     gap: 1px;
     padding: 0px;
+    
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height:10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #3a365e; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(83, 83, 83); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(0, 0, 0); 
+}
+
+
 .pixel{
     background-color: #333;
     border-radius: 0px;
+    width: 50px;
+    height:50px;
+    display:block;
+    overflow:hidden;
+    float:left;
 }
