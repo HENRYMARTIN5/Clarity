@@ -19,28 +19,13 @@ var Clarity = function () {
     y: 0
   };
 
-  this.keyInternal = {
+  this.key = {
     left: false,
     right: false,
     up: false
   };
 
-  this.key = new Proxy(this.keyInternal, {
-    set: function (target, key, value) {
-        if(key == "up"){
-          var oldValue = target[key];
-          var newValue = value;
-          if(newValue != oldValue){
-            this.allowWallJump = true;
-          }
-          else {
-            this.allowWallJump = false;
-          }
-        }
-        target[key] = value;
-        return true;
-    }
-  });
+
 
   this.player = {
 
@@ -478,24 +463,28 @@ Clarity.prototype.update_player = function () {
   if (this.key.up) {
 
     if (this.player.can_jump && this.player.vel.y > -this.current_map.vel_limit.y ) {
-      if (this.detectSides(18).result && !this.isGroundSolid() && this.allowWallJump){
-        
-        
+      if (this.detectSides(18).result && !this.isGroundSolid()){
+        if(this.allowWallJump){
+          this.allowWallJump = false;
 
-        if(this.detectSides(18).side == "left"){
-          // Bump player off wall to the right using velocity
-          this.player.vel.x += this.current_map.movement_speed.jump;
-        } else {
-          // Same thing, but to the left
-          this.player.vel.x -= this.current_map.movement_speed.jump;
+          if(this.detectSides(18).side == "left"){
+            // Bump player off wall to the right using velocity
+            this.player.vel.x += this.current_map.movement_speed.jump;
+          } else {
+            // Same thing, but to the left
+            this.player.vel.x -= this.current_map.movement_speed.jump;
+          }
+          this.player.vel.y -= this.current_map.movement_speed.jump;
+  
         }
-        this.player.vel.y -= this.current_map.movement_speed.jump;
       } else {
         this.player.vel.y -= this.current_map.movement_speed.jump;
       }
       
       this.player.can_jump = false;
     }
+  } else {
+    this.allowWallJump = true;
   }
 
 
