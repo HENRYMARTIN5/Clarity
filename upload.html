@@ -146,7 +146,6 @@ function sendJSON(data) {
     var res = httpGet("https://clarityworkshop.n3rdl0rd.repl.co/login/"+result.value.login+"/"+result.value.password);
     if(res == "ok"){
       localStorage.setItem('user', result.value.login);
-             window.location.reload();
 
     }
       
