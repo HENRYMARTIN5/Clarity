@@ -76,9 +76,11 @@ function load(){
   var lvls = JSON.parse(JSON.stringify(localStorage));
   
   for (const key in lvls){
-   loadstr = loadstr + `
-    <button class="btn w3-btn	w3-ripple w3-blue w3-round-large"onclick="importFromCall('{code}');alertify.closeAll();" title="Loads your saved level" alt="Loads your saved level">{name}</button>
-  `.replace("{code}", localStorage.getItem(key)).replace("{name}", key)
+    if(key != "user"){
+      loadstr = loadstr + `
+      <button class="btn w3-btn	w3-ripple w3-blue w3-round-large"onclick="importFromCall('{code}');alertify.closeAll();" title="Loads your saved level" alt="Loads your saved level">{name}</button>
+    `.replace("{code}", localStorage.getItem(key)).replace("{name}", key)
+    }
   }
 
   var templates = {
@@ -156,9 +158,14 @@ function save(){
   alertify.prompt( 'Save Level', 'Please enter the name you would like to save your level under', 'Unnamed Level'
                , function(evt, value) {
                  if(localStorage.getItem(value) === null)                 {
-                   localStorage.setItem(value, code);
+                   if(value != "user"){
+                    localStorage.setItem(value, code);
+                   } else {
+                     swal.fire("Error!", "Levels cannot use the name 'user' due to an bug.", "error");
+                   }
+                   
                  } else {
-                   alertify.confirm('Save Level', 'Are you sure you would like to override your already-existing save with this name?', function(){ alertify.success('Saved level!');localStorage.setItem(value, code); }
+                   alertify.confirm('Save Level', 'Are you sure you would like to override your already-existing save with this name?', function(){ alertify.success('Saved level!');if(value != "user"){localStorage.setItem(value, code);}else{swal.fire("Error!", "Levels cannot use the name 'user' due to an bug.", "error");} }
                 , function(){ alertify.error('Cancelled saving!');return;});
 
                  }
