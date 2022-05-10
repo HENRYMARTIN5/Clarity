@@ -79,7 +79,7 @@
     var leaderboarditems = "";
     SpeedData.forEach(v=>{
       leaderboarditems += `
-      <li>{time} by {name}</li>
+      <li><code>{time}</code> seconds, by {name}</li>
       `.replace("{name}", v.user).replace("{time}", v.time)
     })
 
