@@ -228,7 +228,7 @@ arr.forEach(v => {
     } else if(v.style.backgroundColor == "rgb(51, 51, 51)"){
       arr2.push(0);
     } else if(v.style.backgroundColor == "rgba(121, 220, 242, 0.4)"){
-      arr2.push(3)
+      arr2.push(3);
     } else if(v.style.backgroundColor == "rgb(179, 120, 89)"){
       arr2.push(4);
     } else if(v.style.backgroundColor == "rgb(227, 115, 250)"){
