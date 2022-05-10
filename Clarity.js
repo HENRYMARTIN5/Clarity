@@ -455,7 +455,7 @@ Clarity.prototype.update_player = function () {
   }
 
 
-  
+
 
  
 
@@ -465,6 +465,7 @@ Clarity.prototype.update_player = function () {
 
     if (this.player.can_jump && this.player.vel.y > -this.current_map.vel_limit.y ) {
       if (this.detectSides(18).result && !this.isGroundSolid()){
+
         if(this.allowWallJump){
           this.allowWallJump = false;
 
@@ -479,7 +480,9 @@ Clarity.prototype.update_player = function () {
   
         }
       } else {
-        this.player.vel.y -= this.current_map.movement_speed.jump;
+        if(this.allowWallJump){
+          this.player.vel.y -= this.current_map.movement_speed.jump;
+        }
       }
       
       this.player.can_jump = false;
