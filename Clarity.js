@@ -569,9 +569,9 @@ Clarity.prototype.detectSides = function (id){
   var playerX = Math.round(this.player.loc.x/16);
   var playerY = Math.round(this.player.loc.y/16);
 
-  if (playerY >= map.length-1 || playerX >= map.length){
+  if (playerY >= map.length-1 || playerX >= map.length-2){
     return false;
-  } else if (playerY < 1 || playerX < 1){
+  } else if (playerY <= 0 || playerX <= 0){
     return false;
   }
 
