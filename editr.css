@@ -233,6 +233,7 @@ body{
     grid-template-rows: repeat(var(--size), 1fr);
     gap: 1px;
     padding: 0px;
+    margin: 0px;
     
 }
 
@@ -240,6 +241,7 @@ body{
 ::-webkit-scrollbar {
   width: 10px;
   height:10px;
+  background: #3a365e; 
 }
 
 /* Track */
@@ -254,15 +256,17 @@ body{
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(0, 0, 0); 
+  background: rgb(75, 75, 75); 
 }
 
 
 .pixel{
     background-color: #333;
     border-radius: 0px;
-    width: 32px;
-    height:32px;
+    padding:0px;
+    margin:0px;
+    width: 50px;
+    height:50px;
     display:block;
     overflow:hidden;
     float:left;
