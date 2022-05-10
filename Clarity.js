@@ -571,12 +571,21 @@ Clarity.prototype.detectSides = function (id){
 
   if (playerY >= map.length-1 || playerX >= map.length-2){
     return false;
-  } else if (playerY <= 1 || playerX <= 1){
+  }
+  if (playerY <= 1 || playerX <= 1){
+    return false;
+  }
+
+  if (playerX+1 > map.length){
+    return false;
+  }
+  if (playerX-1 < 1){
     return false;
   }
 
   var tileA = map[playerY][playerX+1];
   var tileB = map[playerY][playerX-1];
+
 
 
   var isDetected = false;
