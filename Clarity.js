@@ -578,14 +578,35 @@ Clarity.prototype.detectSides = function (id){
   var tileA = map[playerY][playerX+1];
   var tileB = map[playerY][playerX-1];
 
+
+  var isDetected = false;
   var sideDetected;
   if (tileA.id == id){
     sideDetected = "right";
+    isDetected = true;
   } else if (tileB.id == id){
     sideDetected = "left";
+    isDetected = true;
   }
 
-  return {result: tileA.id == id || tileB.id == id, side: sideDetected};
+  var unroundX = this.player.loc.x/16;
+  var unroundY = this.player.loc.y/16;
+  
+  if (sideDetected == "right"){
+    if (Math.round(unroundX + 0.6) == playerX + 1 && isDetected){
+      return {result: true, side: "right"};
+    } else {
+      return {result: false, side: null};
+    }
+  } else {
+    if (Math.round(unroundX - 0.6) == playerX - 1 && isDetected){
+      return {result: true, side: "left"};
+    } else {
+      return {result: false, side: null};
+    }
+  }
+  
+
 }
 
 Clarity.prototype.getBelow = function (){
