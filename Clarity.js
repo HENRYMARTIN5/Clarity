@@ -137,7 +137,7 @@ Clarity.prototype.load_map = function (map) {
       Array.prototype.forEach.call(row, function (tile, x) {
         if (tile == 20){
           spawnfound = true;
-          if (this.current_map.player.x == 1 && this.current_map.player.y == 1){
+          if (_this.current_map.player.x == 1 && _this.current_map.player.y == 1){
             _this.current_map.player.x = x;
             _this.current_map.player.y = y;
           }
