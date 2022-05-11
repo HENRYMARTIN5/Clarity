@@ -162,6 +162,7 @@ function save(){
                  if(localStorage.getItem(value) === null)                 {
                    if(value != "user"){
                     localStorage.setItem(value, code);
+                    
                    } else {
                      swal.fire("Error!", "Levels cannot use the name 'user' due to an bug.", "error");
                    }
