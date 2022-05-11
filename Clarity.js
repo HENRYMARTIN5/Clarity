@@ -126,6 +126,8 @@ Clarity.prototype.load_map = function (map) {
   this.current_map.width = 0;
   this.current_map.height = 0;
 
+
+  var spawnfound = false;
   map.keys.forEach(function (key) {
 
     map.data.forEach(function (row, y) {
@@ -134,6 +136,7 @@ Clarity.prototype.load_map = function (map) {
       
       Array.prototype.forEach.call(row, function (tile, x) {
         if (tile == 20){
+          spawnfound = true;
           _this.current_map.player.x = x;
           _this.current_map.player.y = y;
         }
@@ -145,6 +148,11 @@ Clarity.prototype.load_map = function (map) {
       });
     });
   });
+
+  if (!spawnfound){
+    this.current_map.player.x = 1
+    this.current_map.player.y = 1
+  }
 
   this.current_map.width_p = this.current_map.width * this.tile_size;
   this.current_map.height_p = this.current_map.height * this.tile_size;
