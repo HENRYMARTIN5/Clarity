@@ -9,6 +9,7 @@ var Clarity = function () {
   this.limit_viewport = false;
   this.jump_switch = 0;
   this.allowWallJump = true;
+  this.allowWaterJump = true;
   this.deathmsgs = true;
   this.viewport = {
     x: 200,
@@ -481,15 +482,23 @@ Clarity.prototype.update_player = function () {
   
         }
       } else {
-        if(this.allowWallJump){
-          this.player.vel.y -= this.current_map.movement_speed.jump;
-        }
+          if (!this.isInside(3)){
+            this.player.vel.y -= this.current_map.movement_speed.jump;
+          } else {
+            if(this.allowWaterJump){
+              this.allowWaterJump = false;
+
+              this.player.vel.y -= this.current_map.movement_speed.jump;
+            }
+          }
+          
       }
       
       this.player.can_jump = false;
     }
   } else {
     this.allowWallJump = true;
+    this.allowWaterJump = true;
   }
 
 
@@ -617,6 +626,21 @@ Clarity.prototype.detectSides = function (id){
   }
   
 
+}
+
+Clarity.prototype.isInside = function (id){
+  var map = this.current_map.data;
+  var playerX = Math.round(this.player.loc.x/16);
+  var playerY = Math.round(this.player.loc.y/16);
+  if (playerY >= map.length || playerX >= map.length){
+    return false;
+  } else if (playerY < 0 || playerX < 0){
+    return false;
+  }
+
+  var tile = map[playerY][playerX];
+
+  return tile.id == id
 }
 
 Clarity.prototype.getBelow = function (){
