@@ -157,12 +157,12 @@ function allStorage() {
 function save(){
   var code = exportReturn();
   if (storageAvailable('localStorage')) {
-  alertify.prompt( 'Save Level', 'Please enter the name you would like to save your level under<br><br>Or, <button id="exportlvl" class="btn w3-btn	w3-ripple w3-green w3-round-large"onclick="exportLvl()" title="Copy the level code" alt="Copy level code">Export Level</button>', 'Unnamed Level'
+  alertify.prompt( 'Save Level', 'Please enter the name you would like to save your level under<br>Or, <button id="exportlvl" class="btn w3-btn	w3-ripple w3-green w3-round-large"onclick="exportLvl()" title="Copy the level code" alt="Copy level code">Export Level</button>', 'Unnamed Level'
                , function(evt, value) {
                  if(localStorage.getItem(value) === null)                 {
                    if(value != "user"){
                     localStorage.setItem(value, code);
-                    
+
                    } else {
                      swal.fire("Error!", "Levels cannot use the name 'user' due to an bug.", "error");
                    }
