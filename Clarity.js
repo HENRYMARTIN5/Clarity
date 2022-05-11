@@ -138,8 +138,6 @@ Clarity.prototype.load_map = function (map) {
         if (tile == 20){
           spawnfound = true;
           if (this.current_map.player.x == 1 && this.current_map.player.y == 1){
-            
-          } else {
             _this.current_map.player.x = x;
             _this.current_map.player.y = y;
           }
