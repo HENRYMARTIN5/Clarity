@@ -9,6 +9,7 @@ var Clarity = function () {
   this.limit_viewport = false;
   this.jump_switch = 0;
   this.allowWallJump = true;
+  this.deathmsgs = true;
   this.viewport = {
     x: 200,
     y: 200
