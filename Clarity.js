@@ -8,8 +8,8 @@ var Clarity = function () {
   this.tile_size = 16;
   this.limit_viewport = false;
   this.jump_switch = 0;
-  this.allowWallJump = true;
-  this.allowWaterJump = true;
+  this.allowSpecialJump = true;
+  this.allowSpecialJump = true;
   this.deathmsgs = true;
   this.viewport = {
     x: 200,
@@ -468,8 +468,8 @@ Clarity.prototype.update_player = function () {
     if (this.player.can_jump && this.player.vel.y > -this.current_map.vel_limit.y ) {
       if (this.detectSides(18).result && !this.isGroundSolid()){
 
-        if(this.allowWallJump){
-          this.allowWallJump = false;
+        if(this.allowSpecialJump){
+          this.allowSpecialJump = false;
 
           if(this.detectSides(18).side == "left"){
             // Bump player off wall to the right using velocity
@@ -482,11 +482,11 @@ Clarity.prototype.update_player = function () {
   
         }
       } else {
-          if (!this.isInside(3)){
+          if (!this.isInside(3) || !this.isInside(12)|| !this.isInside(13)|| !this.isInside(14)|| !this.isInside(15)){
             this.player.vel.y -= this.current_map.movement_speed.jump;
           } else {
-            if(this.allowWaterJump){
-              this.allowWaterJump = false;
+            if(this.allowSpecialJump){
+              this.allowSpecialJump = false;
 
               this.player.vel.y -= this.current_map.movement_speed.jump;
             }
@@ -497,8 +497,7 @@ Clarity.prototype.update_player = function () {
       this.player.can_jump = false;
     }
   } else {
-    this.allowWallJump = true;
-    this.allowWaterJump = true;
+    this.allowSpecialJump = true;
   }
 
 
