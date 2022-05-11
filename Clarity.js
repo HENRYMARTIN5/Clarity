@@ -133,7 +133,8 @@ Clarity.prototype.load_map = function (map) {
       _this.current_map.height = Math.max(_this.current_map.height, y);
       
       Array.prototype.forEach.call(row, function (tile, x) {
-
+        _this.current_map.player.x = x;
+        _this.current_map.player.y = y;
         _this.current_map.width = Math.max(_this.current_map.width, x);
 
         if (tile == key.id)
