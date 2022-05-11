@@ -21,7 +21,7 @@
 	<center id="contButtons">
 <div id="buttoncontainer">
 <button class="button-62" role="button" onclick="load()">Load Level from Clipboard</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<button class="button-62" role="button" onclick="game.current_map.keys[10].solid = 1;game.current_map.keys[10].img = wallimg;game.load_map(map);">Reload Level</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="button-62" role="button" href="editr.html" target="_blank">Editr</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="button-62" role="button" href="workshop.html">Workshop</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-62" role="button" href="workshop.html">Settings</button>
+<button class="button-62" role="button" onclick="game.current_map.keys[10].solid = 1;game.current_map.keys[10].img = wallimg;game.load_map(map);">Reload Level</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="button-62" role="button" href="editr.html" target="_blank">Editr</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="button-62" role="button" href="workshop.html">Workshop</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-62" role="button" onclick="settings()">Settings</button>
 </div>	
 	<canvas id="canvas"></canvas>
 
@@ -34,12 +34,7 @@
 
 <center>
 	
-	<label for="viewport">
-        <input type="checkbox"class="info" id="viewport" onclick="game.limit_viewport=this.checked;" checked/><span class="info"> Confine viewport to map</span></label>
-  <label for="debug">
-        <input type="checkbox"class="info" id="debug" onclick="game.debug=this.checked;" /><span class="info"> Debug Mode</span></label>
-        <label for="deathmsgs"></label>
-  <input type="checkbox"class="info" id="deaqthmsgs" checked onclick="game.deathmsgs=this.checked;" /><span class="info"> Enable Death Messages</span></label>
+
   <p><span id="debugmenu"></span><br></br><span id="debugmenu2"></span></p>
 
   
@@ -56,6 +51,19 @@
 
 
     <script type="text/javascript">
+
+      function settings(){
+        swal.fire({
+          title: 'Settings',
+          html: `	<label for="viewport">
+        <input type="checkbox"class="info" id="viewport" onclick="game.limit_viewport=this.checked;" checked/><span class="info"> Confine viewport to map</span></label>
+  <label for="debug">
+        <input type="checkbox"class="info" id="debug" onclick="game.debug=this.checked;" /><span class="info"> Debug Mode</span></label>
+        <label for="deathmsgs"></label>
+  <input type="checkbox"class="info" id="deaqthmsgs" checked onclick="game.deathmsgs=this.checked;" /><span class="info"> Enable Death Messages</span></label>`,
+           confirmButtonText: 'Save'
+        })
+      }
         function signin(){
     Swal.fire({
   title: 'Login to Clarity',
