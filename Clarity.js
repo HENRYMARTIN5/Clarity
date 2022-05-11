@@ -570,14 +570,14 @@ Clarity.prototype.detectSides = function (id){
   var playerX = Math.round(this.player.loc.x/16);
   var playerY = Math.round(this.player.loc.y/16);
 
-  if (playerY >= map.length-1 || playerX >= map.length-2){
+  if (playerY >= map.length-1 || playerX >= map.length-1){
     return false;
   }
   if (playerY <= 1 || playerX <= 1){
     return false;
   }
 
-  if (playerX+1 > map.length){
+  if (playerX+1 > map.length-1){
     return false;
   }
   if (playerX-1 < 1){
