@@ -258,6 +258,9 @@
       var walljumpimg = new Image();
       walljumpimg.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAIFJREFUOE9j/LyJ4T8DBYAR2QAeH+JM+rIFoQ6vATCF6AZjNQCbotM3ITaZqjMw4DIEqwtANoA0OxZDDNjfi2kIzBVYDQBpgGmG+RZdDMMAbAFIszAgGAuEwoCgAYTCgKABsIDDFQYgeYKBCPMG0ekAORYGTxjgylo4A5G4vIiqCgAJh3ZR4vXYPAAAAABJRU5ErkJgggAA';
 
+      var spawnimg = new Image();
+      spawnimg.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAGZJREFUOE9j5Klm+M9AAWCEGcDTQpopX2og6sEGkKoZZhXIENoYUJWM3Tttc1HFsboApjnXE1Xx5O0QPrIhOA1A1wwzCmTISDEA5GeyAxGkmaJoJCVBUy8lgmwlNT+gZCZSnI2uFgBttFBxn/KikgAAAABJRU5ErkJgggAA'
+
       window.start_time = performance.now();
 			//map
         var map = {
@@ -305,7 +308,9 @@
               // Wall Jump
                 {id: 18, colour: '#558', solid:1, fore: 1, bounce: 0, gravity: {x: 0,y: 0.1}, jump: 1, img:walljumpimg},
               // Foreground Wall Block
-                {id: 19, colour: "#553", solid:0, fore:1, bounce: 0, img: wallimg}
+                {id: 19, colour: "#553", solid:0, fore:1, bounce: 0, img: wallimg},
+              // Spawn Block
+                {id: 20, colour: '#551', solid: 0, fore:1, bounce: 0, img: spawnimg},
          ],
           // End EDITOR and MAIN similar code
         
@@ -337,7 +342,7 @@
                 [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [2, 1, 1, 1, 20, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [2, 6, 17, 17, 17, 17, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 4, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 4, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
