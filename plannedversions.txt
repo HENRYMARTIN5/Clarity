@@ -20,10 +20,10 @@ Account Update - Add accounts, required for publishing. Users can be banned from
  (Done) Update 1.0.1
 Saves Update - Adds 3 save slots for wip levels
 
-Update 1.0.2 - DELAYED
+ (NOT Done) Update 1.0.2 - DELAYED
 Code Organization Update - make code easier to work with
 
-Update 1.0.3: 
+ (Done) Update 1.0.3: 
 Leaderboard Update - added speedrun timer and level leaderboards
 
 Update 1.1:
@@ -49,7 +49,6 @@ Gravity Block - Changes Gravity
 
 2nd door block (and door activator)
 
-Ice - No friction! (delayed)
 Magma - Hot! Causes ball to bounce a random hieght on hit (1-3 blocks) Kills player if they hit more then 3 times in a row
 
 
