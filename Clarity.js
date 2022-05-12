@@ -103,7 +103,6 @@ Clarity.prototype.keyup = function (e) {
 };
 
 Clarity.prototype.load_map = function (map) {
-  this.checkpoint = false;
   if (typeof map === 'undefined'
     || typeof map.data === 'undefined'
     || typeof map.keys === 'undefined') {
