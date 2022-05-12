@@ -152,10 +152,8 @@ Clarity.prototype.load_map = function (map) {
   });
 
   if (!spawnfound) {
-    if (!checkpoint){
-      this.current_map.player.x = 1
-      this.current_map.player.y = 1
-    }
+    this.current_map.player.x = 1
+    this.current_map.player.y = 1
   } else {
     this.current_map.player.x = spawnx;
     this.current_map.player.y = spawny;
