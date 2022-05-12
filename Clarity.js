@@ -112,7 +112,6 @@ Clarity.prototype.load_map = function (map) {
     return false;
   }
 
-  
 
   this.current_map = map;
 
@@ -127,6 +126,8 @@ Clarity.prototype.load_map = function (map) {
 
 
   var spawnfound = false;
+  var spawnx;
+  var spawny;
   map.keys.forEach(function (key) {
 
     map.data.forEach(function (row, y) {
@@ -134,12 +135,11 @@ Clarity.prototype.load_map = function (map) {
       _this.current_map.height = Math.max(_this.current_map.height, y);
       
       Array.prototype.forEach.call(row, function (tile, x) {
-        if (tile == 20){
+        if (tile == 20 || tile.id == 20){
+          console.log("SPAWN FOUND!!!")
           spawnfound = true;
-          if (_this.current_map.player.x == 1 && _this.current_map.player.y == 1){
-            _this.current_map.player.x = x;
-            _this.current_map.player.y = y;
-          }
+          spawnx = x;
+          spawny = y;
         }
 
         _this.current_map.width = Math.max(_this.current_map.width, x);
@@ -150,9 +150,12 @@ Clarity.prototype.load_map = function (map) {
     });
   });
 
-  if (!spawnfound){
+  if (!spawnfound || this.current_map.player.x != 1 || this.current_map.player.y != 1) {
     this.current_map.player.x = 1
     this.current_map.player.y = 1
+  } else {
+    this.current_map.player.x = spawnx;
+    this.current_map.player.y = spawny;
   }
 
   this.current_map.width_p = this.current_map.width * this.tile_size;
