@@ -500,7 +500,7 @@ Clarity.prototype.update_player = function () {
   
         }
       } else {
-          if (this.isInside(3) || this.isInside(12)|| this.isInside(13)|| this.isInside(14)|| this.isInside(15)){
+          if (this.isInside(3) || this.isInside(12)|| this.isInside(14)|| this.isInside(15)){
             
             if(this.allowSpecialJump){
               this.allowSpecialJump = false;
