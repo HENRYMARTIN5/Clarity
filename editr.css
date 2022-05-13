@@ -247,7 +247,8 @@ body{
     gap: 1px;
     padding: 0px;
     margin: 0px;
-    width: max-content;
+    width: 100vw;
+    height: 100%;
     
 }
 
