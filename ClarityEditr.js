@@ -82,8 +82,9 @@ function load(){
     `.replace("{code}", localStorage.getItem(key)).replace("{name}", key)
     }
   }
-  loadstr = loadstr + `<button class="btn w3-btn	w3-ripple w3-green w3-round-large"onclick="importFromBase64();" title="Warning: WILL DELETE LEVEL" alt="Warning: WILL DELETE LEVEL">Import Level from Clipboard
-  </button>`
+  loadstr = loadstr + `<br><br><button class="btn w3-btn	w3-ripple w3-green w3-round-large"onclick="importFromBase64();" title="Warning: WILL DELETE LEVEL" alt="Warning: WILL DELETE LEVEL">Import Level from Clipboard
+  </button><br><br><button class="btn w3-btn	w3-ripple w3-red w3-round-large"onclick="deletesave();" title="Warning: WILL DELETE LEVEL" alt="Warning: WILL DELETE LEVEL">Delete Save
+  </button><br><br>`
 
   var templates = {
     "Original Default Level": "NoKABBldbATAGjI5SXrZ12PYAxIFhEmFnHmkXVW2X00N2MvNtMc0C6C4M/EeEgCMIsWFETxkmdKztWnBcqWrF6lRrUkefATCFSjs43NNGUmq9pta71+7dq79/QyY9nPFp78f+HQL9Al1dody9I8xNLYLiA+KCE5LxQsMgI6KjvSViUxIL8oqTnXnSoTJzsszySwrri+qc08srqrPNapsaehr6lFvS2jqrO7v7e8aniQbDh0YX5aYcUADYkdbBN7aXJveVZ13n20a792xRF/GWbmbLywUuT5+vz5KeR3YnvgfuH48+gLOP38H1OtxBpT0rTBL3BbxWWCuuGBEOCh30AKu3lRCIYsMBMTR+wxAixcPEuMh+KwuAALLSkV9iSVSW4CdiolSWTSwAzsDieb02QYORSxnieih+R8UUK+iLwmLCVz5RckDLKWqSX8YeLkdrNNKma9qZLUrqhsrORKzQ1jQLmebxoqKtb9U67eq+Sbuc7iq6Mu6VbbDZwHbKw8LLXNgzbclGFBGtf67YHHh6gYnwxrfdmAzGjnHxX6vepkz5U8t07BiyGE1X3rnHab81Ya4Y5ThGd2W13+z2B72h/S843IR26/CG/HMwafX22+jC5ip6rK7P6yXm5Hh4P93vzZOU5vd5vz+0Kw2Rz34WmV2Td2vF1vX6edymb7279WH+zPya06AXOIGVpqlZfrgP4IseEG3i8z4Xq+4HXgeXYABzrve0JWgBh5DpsiHrsqkFjqR+Efkef6inh5FdkhqHYAAnEgLFgGxlxEMIXE8SIvFviIjGjq2Oo4bGoEMcRaG3kQdHSRRvbgdhDwZgJanznJL6adpWBKb+YlFhJRkKeRQnyTpinmQeBzUUqGxWSZDkWUOZmOW5Q4oQh2g1lABmrk5AXuYFLnBaFh78u+9iwZJ6nGYKQUJc58EiVCKm1jUYVJVs9nZQlhEHjFhUZVFtlusV9FxZVCVFbFHSltFtFVTVkVEolmXyTZfmPuVTW9a+RFqaWy5df+ErNcZX5AbV87KSp5LTX1IV1X18Wzf8A3jYNyXxQArEge0tjVQ0pA1C1nZFwaTRNEKnZtd3rvCV21cdISlUGK0fctWbVZmL3NG9qn3edXnfZpkVrXqwNQ5FADMSBw2ACMI1luBI/D6MpfUt2fUDDZo4jGMo1g+P439ATY9DOMpiThPtb2NME5j0YjTRlNs/ODPI3TqMY6TN0A+l7NUxKnO82LjOixL4t81RLN2ULCvxZLyvS6rUvq2T7YC/NuNmAd+sgyr6tGybtOy2lnbc1bbU20TblpnLXBAA==="
@@ -99,6 +100,19 @@ function load(){
 
   alertify.alert('Load Level', loadstr, function(){  });
 
+}
+
+function deletesave(){
+  var lvls = JSON.parse(JSON.stringify(localStorage));
+  var loadstr = "<b>Choose a level to delete:</b><br/><i>Your levels:</i><br/>";
+  for (const key in lvls){
+    if(key != "user"){
+      loadstr = loadstr + `
+      <button class="btn w3-btn	w3-ripple w3-red w3-round-large"onclick="alertify.closeAll();" title="Loads your saved level" alt="Loads your saved level">{name}</button>
+    `.replace("{name}", key)
+    }
+  }
+  alertify.alert('Delete Level', loadstr, function(){  });
 }
 
 function splitIntoChunk(inputArray, perChunk) {
@@ -157,7 +171,7 @@ function allStorage() {
 function save(){
   var code = exportReturn();
   if (storageAvailable('localStorage')) {
-  alertify.prompt( 'Save Level', 'Please enter the name you would like to save your level under<br>Or, <button id="exportlvl" class="btn w3-btn	w3-ripple w3-green w3-round-large"onclick="exportLvl()" title="Copy the level code" alt="Copy level code">Export Level</button><br>', 'Unnamed Level'
+  alertify.prompt( 'Save Level', 'Please enter the name you would like to save your level under<br><br>Or, <button id="exportlvl" class="btn w3-btn	w3-ripple w3-green w3-round-large"onclick="exportLvl()" title="Copy the level code" alt="Copy level code">Export Level</button><br><br>', 'Unnamed Level'
                , function(evt, value) {
                  if(localStorage.getItem(value) === null)                 {
                    if(value != "user"){
@@ -446,6 +460,15 @@ function fillAll(color){
 
   v.setAttribute("id", arr2[0].toString());
   });
+}
+
+function settings(){
+  swal.fire({
+    title: 'Settings',
+    html: `
+    <p>Coming Soon&trade;!</p>
+    `,
+  })
 }
 
 
