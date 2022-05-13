@@ -196,6 +196,7 @@ background-size:100% 100%;
 }
 html, body{
     height: 100%;
+    width: 100%;
 }
 body{
     background-color: #1d1b31;
@@ -236,9 +237,9 @@ body{
 }
 
 .container{
-    --size: 4;
+    /* --size: 4;
     height: 1000px;
-    width: 1000px;
+    width: 1000px; */
     display: grid;
     overflow: scroll;
     grid-template-columns: repeat(var(--size), 1fr);
@@ -246,6 +247,7 @@ body{
     gap: 1px;
     padding: 0px;
     margin: 0px;
+    width: max-content;
     
 }
 
