@@ -136,7 +136,6 @@ Clarity.prototype.load_map = function (map) {
       
       Array.prototype.forEach.call(row, function (tile, x) {
         if (tile == 20 || tile.id == 20){
-          console.log("SPAWN FOUND!!!")
           spawnfound = true;
           spawnx = x;
           spawny = y;
