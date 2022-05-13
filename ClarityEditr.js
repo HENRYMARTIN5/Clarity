@@ -108,11 +108,27 @@ function deletesave(){
   for (const key in lvls){
     if(key != "user"){
       loadstr = loadstr + `
-      <button class="btn w3-btn	w3-ripple w3-red w3-round-large"onclick="alertify.closeAll();" title="Loads your saved level" alt="Loads your saved level">{name}</button>
-    `.replace("{name}", key)
+      <button class="btn w3-btn	w3-ripple w3-red w3-round-large"onclick="alertify.closeAll(); deleteLvl('{name}')" title="Deletes your saved level" alt="Deletes your saved level">{name}</button>
+    `.replace("{name}", key).replace("{name}", key)
     }
   }
   alertify.alert('Delete Level', loadstr, function(){  });
+}
+
+function deleteLvl(name){
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      localStorage.removeItem(name);
+    }
+  })
 }
 
 function splitIntoChunk(inputArray, perChunk) {

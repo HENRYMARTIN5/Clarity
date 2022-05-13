@@ -9,6 +9,10 @@
   border-bottom: 1px dotted black;
 }
 
+body {
+  overflow: hidden;
+}
+
 /* 
     Textures
 */
