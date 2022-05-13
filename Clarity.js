@@ -10,6 +10,7 @@ var Clarity = function () {
   this.jump_switch = 0;
   this.allowSpecialJump = true;
   this.deathmsgs = true;
+  this.checkpoint = false;
   this.viewport = {
     x: 200,
     y: 200
@@ -102,7 +103,6 @@ Clarity.prototype.keyup = function (e) {
 };
 
 Clarity.prototype.load_map = function (map) {
-
   if (typeof map === 'undefined'
     || typeof map.data === 'undefined'
     || typeof map.keys === 'undefined') {
@@ -149,13 +149,16 @@ Clarity.prototype.load_map = function (map) {
     });
   });
 
-  if (!spawnfound || this.current_map.player.x != 1 || this.current_map.player.y != 1) {
-    this.current_map.player.x = 1
-    this.current_map.player.y = 1
-  } else {
-    this.current_map.player.x = spawnx;
-    this.current_map.player.y = spawny;
+  if (!this.checkpoint){
+    if (!spawnfound) {
+      this.current_map.player.x = 1
+      this.current_map.player.y = 1
+    } else {
+      this.current_map.player.x = spawnx;
+      this.current_map.player.y = spawny;
+    }
   }
+
 
   this.current_map.width_p = this.current_map.width * this.tile_size;
   this.current_map.height_p = this.current_map.height * this.tile_size;

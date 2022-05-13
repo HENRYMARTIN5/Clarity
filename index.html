@@ -122,7 +122,7 @@
           const gameId = urlParams.get('id');
           const contButtons = document.getElementById("instruct");
 
-          contButtons.innerHTML = contButtons.innerHTML + `<br/><br/><a href="https://clarity.n3rdl0rd.repl.co/level.html?id={id}">Back to Workshop</a><br/>`.replace("{id}", gameId);
+          contButtons.innerHTML = contButtons.innerHTML + `<br/><br/><a href="https://henrymartin5.github.io/Clarity/level.html?id={id}">Back to Workshop</a><br/>`.replace("{id}", gameId);
           
           const lvlCode = httpGet("https://clarityworkshop.n3rdl0rd.repl.co/levelById/"+gameId);
           loadFromParam(lvlCode);
@@ -416,7 +416,7 @@
                 death: 'this.load_map(map);this.current_map.keys[10].solid = 1;this.current_map.keys[10].img = lockedimg;if(this.deathmsgs){Swal.fire({title:"You Died!", html: "<i><b>"+deathmsgs[Math.floor(Math.random()*deathmsgs.length)] + "</b></i>", });}',
                 unlock: 'this.current_map.keys[10].solid = 0;this.current_map.keys[10].img = airimg;',
                 checkpoint:
-                'this.current_map.player.x = Math.round(this.player.loc.x/16);this.current_map.player.y = Math.round(this.player.loc.y/16); console.log("CHECKPOINT")',
+                'this.current_map.player.x = Math.round(this.player.loc.x/16);this.current_map.player.y = Math.round(this.player.loc.y/16); console.log("CHECKPOINT"); this.checkpoint = true;',
             }
         };
 

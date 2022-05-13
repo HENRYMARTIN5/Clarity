@@ -48,6 +48,14 @@ if (request.status === 200) {
       </div>
     </div>
 
+
+    <div class="w3-third w3-container w3-margin-bottom">
+    <div class="w3-container level w3-hover-opacity" style= "cursor: pointer;" onclick="alert('haha u thought')">
+      <p><b>Campaign Mode</b></p>
+      <p>The official story campaign for Clarity</p>
+    </div>
+  </div>
+
     <br></br>
       </div>
       <p>Other Levels</p>
