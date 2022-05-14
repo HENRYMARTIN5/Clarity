@@ -479,14 +479,28 @@ function fillAll(color){
 }
 
 function settings(){
+  // dropdown to select tile size
   swal.fire({
     title: 'Settings',
     html: `
-    <p>Coming Soon&trade;!</p>
+    <span>Tile Size:</span><br>
+    <select id="tileSize" onchange="doPixelSizeUpdate()">
+      
+      <option value="pixel-med">32px</option>
+      <option value="pixel-small">16px</option>
+      <option value="pixel-large">64px</option>
+    </select>
     `,
   })
 }
 
+function doPixelSizeUpdate(){
+  var x = document.getElementById("tileSize").value;
+  Array.prototype.forEach.call(document.getElementsByClassName("pixel"), v=>{
+    v.className = "pixel";
+    v.classList.add(x);
+  });
+}
 
 function importFromBase64(){
   navigator.clipboard.readText()
@@ -559,10 +573,17 @@ function blockIdToTag(id, div){
 }
 
 function populate(size) {
+  if (document.getElementsByClassName("pixel")[0]){
+    var pixelSize = document.getElementsByClassName("pixel")[0].classList.value;
+  } else {
+    pixelSize = "pixel pixel-med";
+  }
+  
+
   container.style.setProperty('--size', size)
   for (let i = 0; i < size * size; i++) {
     const div = document.createElement('div')
-    div.classList.add('pixel')
+    div.className = pixelSize
 
     div.addEventListener('mouseover', function(){
         if(!draw) return
@@ -689,7 +710,13 @@ resetBtn.addEventListener('click', reset)
 
 sizeEl.addEventListener('keyup', function(){
     size = sizeEl.value
-    if (size >= 30){
+  
+    if (document.getElementsByClassName("pixel")[0]){
+      var pixelSize = document.getElementsByClassName("pixel")[0].classList.value;
+    } else {
+      pixelSize = "pixel pixel-med";
+    }
+    if ((size >= 30 && (pixelSize == "pixel" || pixelSize == "pixel pixel-med")) || (size >= 58 && pixelSize == "pixel pixel-small")){
       document.getElementById("container").classList.add("container-large");
       document.getElementById("container").classList.remove("container");
     } else {

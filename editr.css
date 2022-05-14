@@ -225,6 +225,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    position:absolute;
+    top: 16px;
 }
 .btn, input{
     height: 35px;
@@ -284,13 +286,26 @@ body{
 
 
 .pixel{
-    background-color: #333;
-    border-radius: 0px;
-    padding:0px;
-    margin:0px;
-    width: 32px;
-    height:32px;
-    display:block;
-    overflow:hidden;
-    float:left;
+  background-color: #333;
+  border-radius: 0px;
+  padding:0px;
+  margin:0px;
+  display:block;
+  overflow:hidden;
+  float:left;
+}
+
+.pixel-small{
+  width: 16px;
+  height:16px;
+}
+
+.pixel-med{
+  width: 32px;
+  height:32px;
+}
+
+.pixel-large{
+  width: 64px;
+  height:64px;
 }
