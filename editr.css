@@ -237,9 +237,6 @@ body{
 }
 
 .container{
-    /* --size: 4;
-    height: 1000px;
-    width: 1000px; */
     display: grid;
     overflow: scroll;
     grid-template-columns: repeat(var(--size), 1fr);
@@ -249,6 +246,18 @@ body{
     margin: 0px;
     width: max-content;
     
+}
+
+.container-large{
+    height: 1000px;
+    width: 1000px;
+    display: grid;
+    overflow: scroll;
+    grid-template-columns: repeat(var(--size), 1fr);
+    grid-template-rows: repeat(var(--size), 1fr);
+    gap: 1px;
+    padding: 0px;
+    margin: 0px;
 }
 
 /* width */

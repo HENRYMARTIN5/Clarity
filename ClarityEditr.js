@@ -689,6 +689,13 @@ resetBtn.addEventListener('click', reset)
 
 sizeEl.addEventListener('keyup', function(){
     size = sizeEl.value
+    if (size >= 30){
+      document.getElementById("container").classList.add("container-large");
+      document.getElementById("container").classList.remove("container");
+    } else {
+      document.getElementById("container").classList.add("container");
+      document.getElementById("container").classList.remove("container-large");
+    }
     reset()
 })
 
