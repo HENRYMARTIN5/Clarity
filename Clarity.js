@@ -481,6 +481,12 @@ Clarity.prototype.update_player = function () {
 
 
 
+// 1. If the player presses the up arrow, then check if they can jump.
+// 2. If the player can jump, then check if they're touching a wall.
+// 3. If they are, then check if they are jumping off a wall to the right or left.
+// 4. If they are, then change the player's velocity to be able to jump off the wall.
+// 5. If they are not, then simply change the player's velocity to be able to jump.
+// 6. If the player can't jump, then do nothing. 
   if (this.key.up) {
 
     if (this.player.can_jump && this.player.vel.y > -this.current_map.vel_limit.y ) {
@@ -529,8 +535,6 @@ Clarity.prototype.update_player = function () {
 
   this.move_player();
 };
-
-
 
 Clarity.prototype.draw_player = function (context) {
 
