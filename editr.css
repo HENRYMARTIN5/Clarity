@@ -164,6 +164,14 @@ background-size:100% 100%;
   object-fit: cover;
 }
 
+[id="23"]{
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAQtJREFUOE+Fk1ELAUEQx+d06eQoXghJkrxQnn2C+/qeJElCvFCs7tLlNHtmzY3l5mX3bnd+M/OfHScIggTedrzuaKvXZrWT+badOwjwfd9c3Edrs297/QyAzu6hgmFtAkopyAWc3I2GxOoJ5EjUXIDrF7QjmcxodViAM52Nk0FrBDxSJm8AkI50bgCVrpeJxAHkTAGoHFzD8yPNoFQv6vrQUBy05WUO5VIqriyFAhgAlmAz3hE8l6VYReQgCZCQn4B/gmI5jbin41gB6MxbRxpw8QiiASgidoHM5kwR8Q6VhZDbNvp0waqiRTiuy1cbsYW8ffLp8gzMO5DDxC9JgBw0I6JMn48tH2nb/xd0U7XjnLG8hAAAAABJRU5ErkJgggAA");
+  image-rendering: pixelated;
+  background-repeat: no-repeat;
+background-size:100% 100%;
+  object-fit: cover;
+}
+
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 120px;
