@@ -728,7 +728,7 @@ sizeEl.addEventListener('keyup', function(){
     } else {
       pixelSize = "pixel pixel-med";
     }
-    if ((size >= 30 && (pixelSize == "pixel" || pixelSize == "pixel pixel-med")) || (size >= 58 && pixelSize == "pixel pixel-small")){
+    if ((size >= 30 && (pixelSize == "pixel" || pixelSize == "pixel pixel-med")) || (size <= 58 && pixelSize == "pixel pixel-small")){
       document.getElementById("container").classList.add("container-large");
       document.getElementById("container").classList.remove("container");
     } else {
