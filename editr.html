@@ -65,6 +65,39 @@
     </div> 
     <div class="container-large" id="container">
     </div>
+    <div class="w3-container">
+    <div id="id01" class="w3-modal">
+      <div class="w3-modal-content w3-card-4 w3-card-4 w3-animate-zoom" style="padding-left: 10px; padding-top: 35px;">
+        <header class="w3-container w3-purple" style="position:absolute; top:0; left:0; width:100%;"> 
+          <span onclick="document.getElementById('id01').style.display='none'" 
+          class=" w3-display-topright w3-button">&times;</span>
+          <h2>Settings</h2>
+        </header>
+        <br><br><br>
+        <div style="text-align:center;">
+          <span style="font-size: 24px;">Tile Size:</span><br>
+          <select id="tileSize" onchange="doPixelSizeUpdate()">
+            
+            <option value="pixel-med">32px</option>
+            <option value="pixel-small">16px</option>
+            <option value="pixel-large">64px</option>
+          </select>
+          <br><br>
+          <!-- little checkbox -->
+          <input type="checkbox" id="clickDrawToggle" onchange="toggleClickDraw()">
+          <label for="clickDrawToggle">Click to toggle draw</label>
+          <br><br>
+          <button class="btn w3-btn	w3-ripple w3-blue w3-round-large" onclick="window.open('https:\/\/youtu.be/xvFZjo5PgG0', '', 'width=1920,height=1080')" title="Publish your level to the Workshop" alt="Publish your level to the Workshop">Swap to Light Mode
+          </button>
+        </div>
+
+        <div>
+          <br><br><br>
+        </div>
+        
+      </div>
+    </div>
+  </div>
 
     
     <script src="ClarityEditr.js"></script>

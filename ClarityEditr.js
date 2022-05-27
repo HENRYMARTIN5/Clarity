@@ -5,6 +5,8 @@ const resetBtn = document.querySelector('.btn')
 const tile = document.querySelector("#chooseStuff")
 const exportbtn = document.querySelector("#exportlvl")
 
+let clickToggleDrag = false;
+let toggleDraw = false;
 let draw = false;
 
        //      keys: [
@@ -487,19 +489,7 @@ function fillAll(color){
 }
 
 function settings(){
-  // dropdown to select tile size
-  swal.fire({
-    title: 'Settings',
-    html: `
-    <span>Tile Size:</span><br>
-    <select id="tileSize" onchange="doPixelSizeUpdate()">
-      
-      <option value="pixel-med">32px</option>
-      <option value="pixel-small">16px</option>
-      <option value="pixel-large">64px</option>
-    </select>
-    `,
-  })
+  document.getElementById('id01').style.display='block';
 }
 
 function doPixelSizeUpdate(){
@@ -594,7 +584,7 @@ function populate(size) {
     div.className = pixelSize
 
     div.addEventListener('mouseover', function(){
-        if(!draw) return
+        if(!draw && !(clickToggleDrag && toggleDraw)) return
         div.style.backgroundColor = tile.value;
         var arr2 = [];
           if(div.style.backgroundColor){
@@ -648,6 +638,7 @@ function populate(size) {
       div.setAttribute("id", id.toString());
     })
     div.addEventListener('mousedown', function(){
+      toggleDraw = !toggleDraw;
         div.style.backgroundColor = tile.value;
               var arr2 = [];
           if(div.style.backgroundColor){
@@ -708,6 +699,7 @@ function populate(size) {
 
 window.addEventListener("mousedown", function(){
     draw = true
+    
 })
 window.addEventListener("mouseup", function(){
     draw = false
@@ -739,3 +731,16 @@ sizeEl.addEventListener('keyup', function(){
 })
 
 populate(size);
+
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+function toggleClickDraw(){
+  clickToggleDrag = !clickToggleDrag;
+}
