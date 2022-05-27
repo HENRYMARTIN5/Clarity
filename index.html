@@ -22,6 +22,7 @@
 <div id="buttoncontainer">
 <button class="button-62" role="button" onclick="load()">Load Level from Clipboard</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <button class="button-62" role="button" onclick="game.current_map.keys[10].solid = 1;game.current_map.keys[10].img = wallimg;game.load_map(map);">Reload Level</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="button-62" role="button" href="editr.html" target="_blank">Editr</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="button-62" role="button" href="workshop.html">Workshop</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-62" role="button" onclick="settings()">Settings</button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="button-62" role="button" onclick="fullscreen()">Fullscreen</button>
 </div>	
 	<canvas id="canvas"></canvas>
 
@@ -81,6 +82,35 @@
            confirmButtonText: 'Save'
         })
       }
+
+      function fullscreen(){
+        var canvas = document.getElementById("canvas");
+        if (canvas.requestFullscreen) {
+          canvas.requestFullscreen();
+        } else if (canvas.mozRequestFullScreen) { /* Firefox */
+          canvas.mozRequestFullScreen();
+        } else if (canvas.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+          canvas.webkitRequestFullscreen();
+        } else if (canvas.msRequestFullscreen) { /* IE/Edge */
+          canvas.msRequestFullscreen();
+        }
+        canvas.width = document.body.clientWidth/2; //document.width is obsolete
+        canvas.height = document.body.clientHeight/2; //document.height is obsolete
+        game.set_viewport(canvas.width, canvas.height);
+      }
+
+      // Hook a function to handle when the user exits fullscreen 
+      document.addEventListener("fullscreenchange", function(e) {
+        if (!document.fullscreenElement) {
+          // The user has just exited fullscreen
+          var canvas = document.getElementById("canvas");
+          canvas.width = 480;
+          canvas.height = 480;
+          game.set_viewport(canvas.width, canvas.height);
+        }
+      });
+
+
         function signin(){
     Swal.fire({
   title: 'Login to Clarity',

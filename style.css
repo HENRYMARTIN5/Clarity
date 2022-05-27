@@ -401,6 +401,11 @@ label {
   margin-left: -0.8em;
 }
 
+canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
 .tgl-skewed + .tgl-btn {
   overflow: hidden;
   transform: skew(-10deg);
