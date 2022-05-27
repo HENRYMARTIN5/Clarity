@@ -268,6 +268,10 @@
       var mossyimg = new Image();
       mossyimg.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAQtJREFUOE+Fk1ELAUEQx+d06eQoXghJkrxQnn2C+/qeJElCvFCs7tLlNHtmzY3l5mX3bnd+M/OfHScIggTedrzuaKvXZrWT+badOwjwfd9c3Edrs297/QyAzu6hgmFtAkopyAWc3I2GxOoJ5EjUXIDrF7QjmcxodViAM52Nk0FrBDxSJm8AkI50bgCVrpeJxAHkTAGoHFzD8yPNoFQv6vrQUBy05WUO5VIqriyFAhgAlmAz3hE8l6VYReQgCZCQn4B/gmI5jbin41gB6MxbRxpw8QiiASgidoHM5kwR8Q6VhZDbNvp0waqiRTiuy1cbsYW8ffLp8gzMO5DDxC9JgBw0I6JMn48tH2nb/xd0U7XjnLG8hAAAAABJRU5ErkJgggAA';
 
+      var mossimg = new Image();
+      mossimg.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAARRJREFUOE+FU6sOwkAQvAbVkJQm/ABIDBqFRqIxWL4BU0XST0Kj0Bgk/ABJaUKqSMlcmMt0W8qqu33M7s7uRlmW1XEcu0t5dirzZNH4q522qqpclOd5DU84wEDHZDhyk8HMg9zfV1e+ngFQwQPA6XZ0y+nKOxEEjhpcPAqXjlOfiBIAqNBgBcMbgZoIul6AvtL/VtBg8Pth6QCGgJdod9jWJMuWjD/77gL0LWz26xqME1EdEQxi0TfIIw9MBLsHYBAUEOtsJ4M/yfQAnD97/JVRK2iR2LUHtmQG6ZK1xsjy2AZB7KoTJLRgWbYBtHOZmCCQqDPGfJUX5UQ3EiABQEep4+N9EETvALqo65ztKbN8eyc45w/CAMgtolHQZQAAAABJRU5ErkJgggAA';
+
+
       window.start_time = performance.now();
 			//map
         var map = {
@@ -324,6 +328,8 @@
                 {id: 22, colour: '#00F', solid: 0, script: 'unlock2', img:secondaryunlockimg},
               // Mossy Wall Block
                 {id: 23, colour: '#355432', solid: 1, img:mossyimg},
+              // Overhanging Moss
+                {id: 24, colour: '#355456', solid: 0, img:mossimg},
          ],
           // End EDITOR and MAIN similar code
         
