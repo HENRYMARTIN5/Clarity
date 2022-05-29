@@ -310,7 +310,7 @@ arr.forEach(v => {
       arr2.push(20);
     } else if (v.style.backgroundColor == "rgb(53, 84, 50)"){
       arr2.push(23);
-    } else if (v.style.backgroundCOlor == "rgb(53, 84, 86)"){
+    } else if (v.style.backgroundColor == "rgb(53, 84, 86)"){
       arr2.push(24);
     }
  
@@ -391,7 +391,7 @@ arr.forEach(v => {
       arr2.push(20);
     }else if (v.style.backgroundColor == "rgb(53, 84, 50)"){
       arr2.push(23);
-    }else if (v.style.backgroundCOlor == "rgb(53, 84, 86)"){
+    }else if (v.style.backgroundColor == "rgb(53, 84, 86)"){
       arr2.push(24);
     }
  
@@ -484,7 +484,7 @@ function fillAll(color){
       arr2.push(20);
     }else if (v.style.backgroundColor == "rgb(53, 84, 50)"){
       arr2.push(23);
-    }else if (v.style.backgroundCOlor == "rgb(53, 84, 86)"){
+    }else if (v.style.backgroundolor == "rgb(53, 84, 86)"){
       arr2.push(24);
     }
  
@@ -637,7 +637,7 @@ function populate(size) {
       arr2.push(20);
     }else if (div.style.backgroundColor == "rgb(53, 84, 50)"){
       arr2.push(23);
-    }else if (div.style.backgroundCOlor == "rgb(53, 84, 86)"){
+    }else if (div.style.backgroundColor == "rgb(53, 84, 86)"){
       arr2.push(24);
     }
  
@@ -693,7 +693,7 @@ function populate(size) {
       arr2.push(20);
     }else if (div.style.backgroundColor == "rgb(53, 84, 50)"){
       arr2.push(23);
-    }else if (div.style.backgroundCOlor == "rgb(53, 84, 86)"){
+    }else if (div.style.backgroundColor == "rgb(53, 84, 86)"){
       arr2.push(24);
     }
  

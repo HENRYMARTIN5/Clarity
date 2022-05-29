@@ -172,7 +172,7 @@ background-size:100% 100%;
   object-fit: cover;
 }
 
-[id="23"]{
+[id="24"]{
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAARRJREFUOE+FU6sOwkAQvAbVkJQm/ABIDBqFRqIxWL4BU0XST0Kj0Bgk/ABJaUKqSMlcmMt0W8qqu33M7s7uRlmW1XEcu0t5dirzZNH4q522qqpclOd5DU84wEDHZDhyk8HMg9zfV1e+ngFQwQPA6XZ0y+nKOxEEjhpcPAqXjlOfiBIAqNBgBcMbgZoIul6AvtL/VtBg8Pth6QCGgJdod9jWJMuWjD/77gL0LWz26xqME1EdEQxi0TfIIw9MBLsHYBAUEOtsJ4M/yfQAnD97/JVRK2iR2LUHtmQG6ZK1xsjy2AZB7KoTJLRgWbYBtHOZmCCQqDPGfJUX5UQ3EiABQEep4+N9EETvALqo65ztKbN8eyc45w/CAMgtolHQZQAAAABJRU5ErkJgggAA");
   image-rendering: pixelated;
   background-repeat: no-repeat;
