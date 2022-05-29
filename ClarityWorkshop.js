@@ -46,7 +46,7 @@ window.onload = function () {
         <p><b>Official Clarity Tutorial</b></p>
         <p>By <i>N3rdL0rd</i>, the creator of Clarity</p>
       </div>
-  
+
     </div>
 
         <div class="w3-third w3-container w3-margin-bottom">

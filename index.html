@@ -67,21 +67,21 @@
           title: 'Settings',
           html: `
           <div style="text-align:center;justify-content: center;">
-            
+
               <input class="tgl tgl-skewed" id="cb1" type="checkbox" checked onclick="game.limit_viewport=this.checked;"/>
               <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb1"></label>
             <span style="font-size: 16px;">Confine viewport to map</span>
           </div>
           <br>
           <div style="text-align:center;justify-content: center;">
-            
+
             <input class="tgl tgl-skewed" id="cb2" type="checkbox" onclick="game.debug=this.checked;" />
             <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb2"></label>
           <span style="font-size: 16px;">Debug Mode</span>
         </div>
         <br>
         <div style="text-align:center;justify-content: center;">
-            
+
             <input class="tgl tgl-skewed" id="cb3" type="checkbox" checked onclick="game.deathmsgs=this.checked;" />
             <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb3"></label>
           <span style="font-size: 16px;">Death Messages</span>
@@ -111,7 +111,7 @@
         game.set_viewport(canvas.width, canvas.height);
       }
 
-      // Hook a function to handle when the user exits fullscreen 
+      // Hook a function to handle when the user exits fullscreen
       document.addEventListener("fullscreenchange", function (e) {
         if (!document.fullscreenElement) {
           // The user has just exited fullscreen
