@@ -4,7 +4,7 @@
 <head>
 	<title>Clarity</title>
 
-
+  <link rel="manifest" href="clarity.webmanifest">
 	<script type="text/javascript" src="Clarity.js">
     
 	</script>
@@ -504,7 +504,7 @@
         const urlParams = new URLSearchParams(queryString);
 
         if(!urlParams.has('id')){
-          swal.fire("Error!", "Speedrun can not be submitted on the default level!", "error")
+          swal.fire("Error!", "Speedrun can not be submitted on the default level or a level loaded from the clipboard!", "error")
           return false;
         }
         
