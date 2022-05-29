@@ -17,5 +17,6 @@
     "start_url": "index.html",
     "display": "minimal-ui",
     "theme_color": "#1D1B31",
-    "background_color": "#1D1B31"
+    "background_color": "#1D1B31",
+    "id": "ClarityPlatformerGameClient"
 }
