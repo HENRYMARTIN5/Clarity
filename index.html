@@ -157,6 +157,9 @@
   }
 
       window.onload = function(){
+        if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+}
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         if(signedin() == "null" || signedin() == null){
