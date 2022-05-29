@@ -13,8 +13,8 @@ function splitIntoChunk(inputArray, perChunk) {
   return result
 }
 
-
-window.onload = function () {
+window.onload =
+    function() {
   var request = new XMLHttpRequest();
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -23,7 +23,10 @@ window.onload = function () {
   } else {
     var page = 1;
   }
-  request.open('GET', 'https://clarityworkshop.n3rdl0rd.repl.co/getpage/' + page.toString(), false); // `false` makes the request synchronous
+  request.open('GET',
+               'https://clarityworkshop.n3rdl0rd.repl.co/getpage/' +
+                   page.toString(),
+               false); // `false` makes the request synchronous
   request.send(null);
   if (request.status === 200) {
     var currentLvls = request.responseText;
@@ -61,13 +64,13 @@ window.onload = function () {
       <p>Other Levels</p>
     </div>`
 
-  //   <div class="w3-third w3-container w3-margin-bottom">
-  //   <div class="w3-container level w3-hover-opacity" style= "cursor: pointer;" onclick="alert('haha u thought')">
-  //     <p><b>Campaign Mode</b></p>
-  //     <p>The official story campaign for Clarity</p>
-  //   </div>
-  // </div>
-
+    //   <div class="w3-third w3-container w3-margin-bottom">
+    //   <div class="w3-container level w3-hover-opacity" style= "cursor:
+    //   pointer;" onclick="alert('haha u thought')">
+    //     <p><b>Campaign Mode</b></p>
+    //     <p>The official story campaign for Clarity</p>
+    //   </div>
+    // </div>
 
     splitLvlJson.forEach(levels => {
       console.log(levels);
@@ -83,7 +86,9 @@ window.onload = function () {
         <p><b>{level}</b></p>
         <p>By {author}</p>
       </div>
-    </div>`.replace("{level}", level["name"]).replace("{author}", level["author"]).replace("{levelId}", level["id"])
+    </div>`.replace("{level}", level["name"])
+                          .replace("{author}", level["author"])
+                          .replace("{levelId}", level["id"])
         newRow.innerHTML = newRow.innerHTML + newelem;
       })
       newRow.innerHTML = newRow.innerHTML + "</br>";
@@ -93,10 +98,12 @@ window.onload = function () {
     container.innerHTML = container.innerHTML + `
     <center>
     <div id="pagination" class="w3-row-padding">
-      <div class="w3-button w3-black" style= "cursor: pointer;" onclick="loadPage(` + (parseInt(page) - 1).toString() + `);">
+      <div class="w3-button w3-black" style= "cursor: pointer;" onclick="loadPage(` +
+                          (parseInt(page) - 1).toString() + `);">
         <p>Back</p>
       </div>
-      <div class="w3-button w3-black" style= "cursor: pointer;" onclick="loadPage(` + (parseInt(page) + 1).toString() + `);">
+      <div class="w3-button w3-black" style= "cursor: pointer;" onclick="loadPage(` +
+                          (parseInt(page) + 1).toString() + `);">
         <p>Forward</p>
       </div>
     </div>
@@ -104,12 +111,13 @@ window.onload = function () {
   }
 }
 
-
 function loadPage(page) {
-  window.location.href = "https://henrymartin5.github.io/Clarity/workshop.html?page=" + (page).toString();
+  window.location.href =
+      "https://henrymartin5.github.io/Clarity/workshop.html?page=" +
+      (page).toString();
 }
 
-
 function loadLevelById(id) {
-  window.location.href = "https://henrymartin5.github.io/Clarity/level.html?id=" + (id).toString();
+  window.location.href =
+      "https://henrymartin5.github.io/Clarity/level.html?id=" + (id).toString();
 }
