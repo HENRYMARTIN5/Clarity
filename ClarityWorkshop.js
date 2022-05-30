@@ -89,18 +89,28 @@ window.onload = function () {
       newRow.innerHTML = newRow.innerHTML + "</br>";
       container.appendChild(newRow);
     })
+
+
+
+
     // append pagination buttons (back, fwd, etc)
     container.innerHTML = container.innerHTML + `
     <center>
     <div id="pagination" class="w3-row-padding">
-      <div class="w3-button w3-black" style= "cursor: pointer;" onclick="loadPage(` + (parseInt(page) - 1).toString() + `);">
-        <p>Back</p>
+      <div class="w3-button w3-black" style= "cursor: pointer;" id="back" onclick="loadPage(` + (parseInt(page) - 1).toString() + `);">
+        <p>&lt;</p>
       </div>
-      <div class="w3-button w3-black" style= "cursor: pointer;" onclick="loadPage(` + (parseInt(page) + 1).toString() + `);">
-        <p>Forward</p>
+      <div class="w3-button w3-black" style= "cursor: pointer;" id="fwd" onclick="loadPage(` + (parseInt(page) + 1).toString() + `);">
+        <p>Next Page &gt;</p>
       </div>
     </div>
     </center>`
+    if (parseInt(page) === 1){
+      document.getElementById("back").style.display = "none";
+    }
+    if (lvlJson.length === 0){
+      document.getElementById("fwd").style.display = "none";
+    }
   }
 }
 
