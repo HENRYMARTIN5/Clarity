@@ -1,0 +1,14 @@
+{
+  "name": "clarity-native",
+  "version": "1.0.0",
+  "description": "yeet.",
+  "main": "main.js",
+  "author": "Henry Martin & Toby Morris",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^19.0.1"
+  }
+}
