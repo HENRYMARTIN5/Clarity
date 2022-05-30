@@ -41,7 +41,7 @@ window.onload = function () {
         <div class="w3-third w3-container w3-margin-bottom">
       <div class="w3-container level w3-hover-opacity" style= "cursor: pointer;" onclick="loadLevelById(36);">
         <p><b>Official Clarity Tutorial</b></p>
-        <p>By <i>N3rdL0rd</i>, the creator of Clarity</p>
+        <p>By <i><a href="user.html?user=N3rdL0rd">N3rdL0rd</a></i>, the creator of Clarity</p>
       </div>
   
     </div>
@@ -49,7 +49,7 @@ window.onload = function () {
         <div class="w3-third w3-container w3-margin-bottom">
       <div class="w3-container level w3-hover-opacity" style= "cursor: pointer;" onclick="loadLevelById(122);">
         <p><b>S.S.S.S (Single Screen Suffering Squared)</b></p>
-        <p>By <i>@TdubMorris</i>, the co-creator of Clarity</p>
+        <p>By <i><a href="user.html?user=@TdubMorris">@TdubMorris</a></i>, the co-creator of Clarity</p>
       </div>
     </div>
 
@@ -81,9 +81,9 @@ window.onload = function () {
     <div class="w3-third w3-container w3-margin-bottom w3-hover-opacity" style= "cursor: pointer;" onclick="loadLevelById({levelId});">
       <div class="w3-container level">
         <p><b>{level}</b></p>
-        <p>By {author}</p>
+        <p>By <a href="user.html?user={author}">{author}</a></p>
       </div>
-    </div>`.replace("{level}", level["name"]).replace("{author}", level["author"]).replace("{levelId}", level["id"])
+    </div>`.replace("{level}", level["name"]).replace("{author}", level["author"]).replace("{author}", level["author"]).replace("{levelId}", level["id"])
         newRow.innerHTML = newRow.innerHTML + newelem;
       })
       newRow.innerHTML = newRow.innerHTML + "</br>";
