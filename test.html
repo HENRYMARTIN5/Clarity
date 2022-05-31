@@ -69,7 +69,13 @@
     var res = httpGet("https://clarityworkshop.n3rdl0rd.repl.co/login/"+username+"/"+password);
     if(res == "ok"){
       localStorage.setItem('user', username);
-    }
+    }else {
+          Swal.fire({
+            type: 'error',
+            title: 'Oops...',
+            text: 'Incorrect login or password!'
+          })
+        }
       
   }
 

@@ -152,7 +152,13 @@ function sendJSON(data) {
     if(res == "ok"){
       localStorage.setItem('user', result.value.login);
 
-    }
+    }else {
+          Swal.fire({
+            type: 'error',
+            title: 'Oops...',
+            text: 'Incorrect login or password!'
+          })
+        }
       
   })
         }

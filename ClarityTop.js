@@ -18,12 +18,8 @@ function splitIntoChunk(inputArray, perChunk) {
     var request = new XMLHttpRequest();
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    if (urlParams.has('user')) {
-      var user = urlParams.get('user');
-    } else {
-      var user = "N3rdL0rd";
-    }
-    request.open('GET', 'https://clarityworkshop.n3rdl0rd.repl.co/getuser/' + user, false); // `false` makes the request synchronous
+
+    request.open('GET', 'https://clarityworkshop.n3rdl0rd.repl.co/toplvls/', false); // `false` makes the request synchronous
     request.send(null);
     if (request.status === 200) {
       var currentLvls = request.responseText;
@@ -33,17 +29,23 @@ function splitIntoChunk(inputArray, perChunk) {
       console.log(splitLvlJson);
       document.getElementById("container").innerHTML = "";
       const container = document.getElementById("container");
-      document.getElementById("title").innerText = user+"'s Clarity Workshop";
       container.innerHTML = `
       <div id="pinnedcontainer">
+        <p>Top Levels</p>
+ 
 
   
   
   
-        </div>
-        <p>Created Levels</p>
+      <br></br>
       </div>`
   
+    //   <div class="w3-third w3-container w3-margin-bottom">
+    //   <div class="w3-container level w3-hover-opacity" style= "cursor: pointer;" onclick="alert('haha u thought')">
+    //     <p><b>Campaign Mode</b></p>
+    //     <p>The official story campaign for Clarity</p>
+    //   </div>
+    // </div>
   
   
       splitLvlJson.forEach(levels => {
@@ -58,9 +60,9 @@ function splitIntoChunk(inputArray, perChunk) {
       <div class="w3-third w3-container w3-margin-bottom w3-hover-opacity" style= "cursor: pointer;" onclick="loadLevelById({levelId});">
         <div class="w3-container level">
           <p><b>{level}</b></p>
-          <p>By {author}</p>
+          <p>By <a href="user.html?user={author}">{author}</a> - Likes: {likes}</p>
         </div>
-      </div>`.replace("{level}", level["name"]).replace("{author}", level["author"]).replace("{levelId}", level["id"])
+      </div>`.replace("{level}", level["name"]).replace("{author}", level["author"]).replace("{author}", level["author"]).replace("{levelId}", level["id"]).replace("{likes}", level["likes"]);
           newRow.innerHTML = newRow.innerHTML + newelem;
         })
         newRow.innerHTML = newRow.innerHTML + "</br>";
@@ -74,15 +76,20 @@ function splitIntoChunk(inputArray, perChunk) {
       container.innerHTML = container.innerHTML + `
       <center>
       <div id="pagination" class="w3-row-padding">
-        <div class="button-62" style= "cursor: pointer;" id="back" onclick="window.location.href='https://henrymartin5.github.io/Clarity/workshop.html'">
+        <a class="button-62" role="button" style= "cursor: pointer;" id="back" href="https://henrymartin5.github.io/Clarity/workshop.html?page=1">
           <p>&lt; Back</p>
-        </div>
+        </a>
+
       </div>
       </center>`
+
     }
   }
   
   
+  function loadPage(page) {
+    window.location.href = "https://henrymartin5.github.io/Clarity/workshop.html?page=" + (page).toString();
+  }
   
   
   function loadLevelById(id) {

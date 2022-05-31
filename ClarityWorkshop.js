@@ -123,3 +123,66 @@ function loadPage(page) {
 function loadLevelById(id) {
   window.location.href = "https://henrymartin5.github.io/Clarity/level.html?id=" + (id).toString();
 }
+
+
+
+      function signin(){
+        Swal.fire({
+      title: 'Login to Clarity',
+      html: `<input type="text" id="login" class="swal2-input" placeholder="Username">
+      <input type="password" id="password" class="swal2-input" placeholder="Password"><br><a href="account.html">No account? Sign up instead!</a>`,
+      confirmButtonText: 'Login',
+      focusConfirm: true,
+      preConfirm: () => {
+        const login = Swal.getPopup().querySelector('#login').value
+        const password = Swal.getPopup().querySelector('#password').value
+        if (!login || !password) {
+          Swal.showValidationMessage(`Please enter login and password`)
+        }
+        return { login: login, password: password }
+      }
+    }).then((result) => {
+        var res = httpGet("https://clarityworkshop.n3rdl0rd.repl.co/login/"+encodeURIComponent(result.value.login)+"/"+encodeURIComponent(result.value.password));
+        if(res == "ok"){
+          localStorage.setItem('user', result.value.login);
+                 window.location.reload();
+    
+        } else {
+          Swal.fire({
+            type: 'error',
+            title: 'Oops...',
+            text: 'Incorrect login or password!'
+          })
+        }
+    
+    
+    
+    
+          
+      })
+            }
+    
+    
+      function signout(){
+        localStorage.setItem("user", null);
+    
+    
+        document.getElementById("signinbutton").innerText = "Sign In";
+        document.getElementById("signinbutton").onclick = signin;
+        
+       window.location.href=window.location.href;
+      }
+    
+      function signedin(){
+        return localStorage.getItem("user");
+      }
+
+function mylvls(){
+  // get the signed in user
+  var user = signedin();
+  if(user){
+    window.location.href="https://henrymartin5.github.io/Clarity/user.html?user="+encodeURIComponent(user);
+  } else {
+    signin();
+  }
+}
