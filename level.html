@@ -126,31 +126,7 @@ preConfirm: () => {
     const urlParams = new URLSearchParams(queryString);
 
   
-  if (!urlParams.has('id')){
-    alert("Failed to get level data. Error code: hahaUthought")
-  }
-  $(".heart").on("click", function() {
-    
-    if(!$(this).hasClass("is-active")){
-      if (signedin()){
-        var user = signedin();
-        $(this).toggleClass("is-active");
-        httpGet("https://clarityworkshop.n3rdl0rd.repl.co/like/"+urlParams.get('id').toString()+"/"+user);
-        
-      } else {
-        signin();
-      }
-    } else {
-      if (signedin()){
-        var user = signedin();
-        $(this).toggleClass("is-active");
-        httpGet("https://clarityworkshop.n3rdl0rd.repl.co/dislike/"+urlParams.get('id').toString()+"/"+user);
-        
-      } else {
-        signin();
-      }
-    }
-  });
+
     
     if (!urlParams.has('id')){
       alert("Failed to get level data. Error code: hahaUthought")
@@ -209,7 +185,31 @@ Level ID: {id}
     title.innerText = "Clarity Workshop - " + LvlData.name + " by " + LvlData.author;
     document.getElementById("container").innerHTML = templateStr;
     
+    if (!urlParams.has('id')){
+    alert("Failed to get level data. Error code: hahaUthought")
+  }
+  $(".heart").on("click", function() {
     
+    if(!$(this).hasClass("is-active")){
+      if (signedin()){
+        var user = signedin();
+        $(this).toggleClass("is-active");
+        httpGet("https://clarityworkshop.n3rdl0rd.repl.co/like/"+urlParams.get('id').toString()+"/"+user);
+        
+      } else {
+        signin();
+      }
+    } else {
+      if (signedin()){
+        var user = signedin();
+        $(this).toggleClass("is-active");
+        httpGet("https://clarityworkshop.n3rdl0rd.repl.co/dislike/"+urlParams.get('id').toString()+"/"+user);
+        
+      } else {
+        signin();
+      }
+    }
+  });
   }
 
   function signout(){
