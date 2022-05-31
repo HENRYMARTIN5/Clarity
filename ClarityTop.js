@@ -95,3 +95,13 @@ function splitIntoChunk(inputArray, perChunk) {
   function loadLevelById(id) {
     window.location.href = "https://henrymartin5.github.io/Clarity/level.html?id=" + (id).toString();
   }
+
+  function mylvls(){
+    // get the signed in user
+    var user = signedin();
+    if(user){
+      window.location.href="https://henrymartin5.github.io/Clarity/user.html?user="+encodeURIComponent(user);
+    } else {
+      signin();
+    }
+  }
