@@ -81,9 +81,9 @@ window.onload = function () {
     <div class="w3-third w3-container w3-margin-bottom w3-hover-opacity" style= "cursor: pointer;" onclick="loadLevelById({levelId});">
       <div class="w3-container level">
         <p><b>{level}</b></p>
-        <p>By <a href="user.html?user={author}">{author}</a></p>
+        <p>By <a href="user.html?user={author}">{author}</a> - Likes: {likes}</p>
       </div>
-    </div>`.replace("{level}", level["name"]).replace("{author}", level["author"]).replace("{author}", level["author"]).replace("{levelId}", level["id"])
+    </div>`.replace("{level}", level["name"]).replace("{author}", level["author"]).replace("{author}", level["author"]).replace("{levelId}", level["id"]).replace("{likes}", level["likes"]);
         newRow.innerHTML = newRow.innerHTML + newelem;
       })
       newRow.innerHTML = newRow.innerHTML + "</br>";
@@ -97,10 +97,10 @@ window.onload = function () {
     container.innerHTML = container.innerHTML + `
     <center>
     <div id="pagination" class="w3-row-padding">
-      <div class="w3-button w3-black" style= "cursor: pointer;" id="back" onclick="loadPage(` + (parseInt(page) - 1).toString() + `);">
+      <div class="button-62" role="button" style= "cursor: pointer;" id="back" onclick="loadPage(` + (parseInt(page) - 1).toString() + `);">
         <p>&lt;</p>
       </div>
-      <div class="w3-button w3-black" style= "cursor: pointer;" id="fwd" onclick="loadPage(` + (parseInt(page) + 1).toString() + `);">
+      <div class="button-62" role="button" style= "cursor: pointer;" id="fwd" onclick="loadPage(` + (parseInt(page) + 1).toString() + `);">
         <p>Next Page &gt;</p>
       </div>
     </div>

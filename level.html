@@ -6,6 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="loaders.css">
   <script
@@ -44,6 +46,23 @@
     padding-left: 150px;
     padding-right: 150px;
   }
+
+  .heart {
+  width: 100px;
+  height: 100px;
+  background: url("https://cssanimation.rocks/images/posts/steps/heart.png") no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  transition: background-position 1s steps(28);
+  transition-duration: 0s;
+}
+.heart.is-active {
+  transition-duration: 1s;
+  background-position: -2800px 0;
+}
+
+
+
 </style>
 
 <body class="bkg w3-content" style="max-width:1600px">
@@ -71,11 +90,16 @@
     if (!urlParams.has('id')){
       alert("Failed to get level data. Error code: hahaUthought")
     }
-    
+    if(!signedin()){
+      var signedinvar = false;
+    } else {
+      var signedinvar = true
+    }
     var RawLvlData = httpGet("https://clarityworkshop.n3rdl0rd.repl.co/levelDataById/"+urlParams.get('id').toString());
     var RawSpeedData = httpGet("https://clarityWorkshop.n3rdl0rd.repl.co/getspeed/"+urlParams.get('id').toString());
     var LvlData = JSON.parse(RawLvlData);
     var SpeedData = JSON.parse(RawSpeedData).slice(0, 10);
+
 
     var leaderboarditems = "";
     SpeedData.forEach(v=>{
@@ -83,13 +107,32 @@
       <li><code>{time}</code> seconds, by {name}</li>
       `.replace("{name}", v.user).replace("{time}", v.time)
     })
+    if (signedinvar){
+      var yesno = httpGet("https://clarityworkshop.n3rdl0rd.repl.co/levelhasbeenlikedbyuser/"+urlParams.get('id').toString()+"/"+signedin());
+      if (yesno == "yes"){
+        var isactive = " is-active";
+      } else {
+        var isactive = "";
+      }
+    }else {
+        var isactive = "";
+      }
 
     var templateStr = `
     <h2><b>{title}</b></h2><h4>By {author}</h4><p>{desc}</p>
+Likes: {likes}
+<br>
 Level ID: {id}
 
 <br/><br/>
-<a href="https://henrymartin5.github.io/Clarity/?id={id}" class="w3-button w3-green w3-hover-opacity w3-round-xlarge">Play</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://henrymartin5.github.io/Clarity/?id={id}" class="button-62">Play</a>
+
+<div class="heart{isactive}" id="heart"></div>
+
+
+
+
+
 <br/><br/>
 <h4>Leaderboard</h4>
 <ol>
@@ -97,10 +140,48 @@ Level ID: {id}
 </ol>
 
     
-    `.replace("{title}", LvlData.name).replace("{desc}", LvlData.description).replace("{author}", LvlData.author).replace("{id}", LvlData.id.toString()).replace("{id}", LvlData.id.toString()).replace("{leaderboarditems}", leaderboarditems);
+    `.replace("{title}", LvlData.name).replace("{desc}", LvlData.description).replace("{author}", LvlData.author).replace("{id}", LvlData.id.toString()).replace("{id}", LvlData.id.toString()).replace("{leaderboarditems}", leaderboarditems).replace("{likes}", LvlData.likes).replace("{isactive}", isactive);
     title.innerText = "Clarity Workshop - " + LvlData.name + " by " + LvlData.author;
     document.getElementById("container").innerHTML = templateStr;
+    
+    
   }
+
+  function signout(){
+    localStorage.setItem("user", null);
+
+    
+   window.location.href=window.location.href;
+  }
+
+  function signedin(){
+    return localStorage.getItem("user");
+  }
+
+  function signin(){
+    Swal.fire({
+  title: 'Login to Clarity',
+  html: `<input type="text" id="login" class="swal2-input" placeholder="Username">
+  <input type="password" id="password" class="swal2-input" placeholder="Password"><br><a href="account.html">No account? Sign up instead!</a>`,
+  confirmButtonText: 'Login',
+  focusConfirm: true,
+  preConfirm: () => {
+    const login = Swal.getPopup().querySelector('#login').value
+    const password = Swal.getPopup().querySelector('#password').value
+    if (!login || !password) {
+      Swal.showValidationMessage(`Please enter login and password`)
+    }
+    return { login: login, password: password }
+  }
+}).then((result) => {
+    var res = httpGet("https://clarityworkshop.n3rdl0rd.repl.co/login/"+result.value.login+"/"+result.value.password);
+    if(res == "ok"){
+      localStorage.setItem('user', result.value.login);
+
+    }
+      
+  })
+        }
 </script>
   
 <!-- !PAGE CONTENT! -->
@@ -141,6 +222,55 @@ Level ID: {id}
 <!-- End page content -->
 </div>
 
+<style>
+  /* CSS */
+.button-62 {
+  background: linear-gradient(to bottom right, #e33692, #5d42f5);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
 
+.button-62:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(177, 71, 239, 0.5), .125rem .125rem 1rem rgba(255, 90, 159, 0.5);
+}
+
+.button-62:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(200, 71, 239, 0.5), .125rem .125rem 1rem rgba(255, 90, 159, 0.5);
+}
+.button2:hover span:nth-child(4) {
+  filter: hue-rotate(300deg);
+  bottom: -100%;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #3a86ff);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%, 100% {
+    bottom: 100%;
+  }
+}
+</style>
 </body>
 </html>
