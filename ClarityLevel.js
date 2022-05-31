@@ -22,6 +22,7 @@ function httpGet(theUrl)
     return xmlHttp.responseText;
 }
 
+
 $(function() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
