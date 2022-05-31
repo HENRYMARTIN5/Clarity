@@ -134,16 +134,18 @@ preConfirm: () => {
     if(!$(this).hasClass("is-active")){
       if (signedin()){
         var user = signedin();
-        httpGet("https://clarityworkshop.n3rdl0rd.repl.co/like/"+urlParams.get('id').toString()+"/"+user);
         $(this).toggleClass("is-active");
+        httpGet("https://clarityworkshop.n3rdl0rd.repl.co/like/"+urlParams.get('id').toString()+"/"+user);
+        
       } else {
         signin();
       }
     } else {
       if (signedin()){
         var user = signedin();
-        httpGet("https://clarityworkshop.n3rdl0rd.repl.co/dislike/"+urlParams.get('id').toString()+"/"+user);
         $(this).toggleClass("is-active");
+        httpGet("https://clarityworkshop.n3rdl0rd.repl.co/dislike/"+urlParams.get('id').toString()+"/"+user);
+        
       } else {
         signin();
       }
