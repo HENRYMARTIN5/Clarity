@@ -431,7 +431,7 @@ function httpGet(theUrl)
 
 function publish(){
   var code = exportReturn();
-  window.location.href=`upload.html?lvl=${encodeURIComponent(code)}`;
+  window.location.href=`upload.html?lvl=${encodeURIComponentComponent(code)}`;
   return;
 }
 

@@ -104,7 +104,7 @@ preConfirm: () => {
   return { login: login, password: password }
 }
 }).then((result) => {
-  var res = httpGet("https://clarityworkshop.n3rdl0rd.repl.co/login/"+encodeURI(result.value.login)+"/"+encodeURI(result.value.password));
+  var res = httpGet("https://clarityworkshop.n3rdl0rd.repl.co/login/"+encodeURIComponent(result.value.login)+"/"+encodeURIComponent(result.value.password));
   if(res == "ok"){
     localStorage.setItem('user', result.value.login);
     window.location.href=window.location.href;
@@ -240,7 +240,7 @@ Level ID: {id}
   }
 }).then((result) => {
   
-    var res = httpGet("https://clarityworkshop.n3rdl0rd.repl.co/login/"+encodeURI(result.value.login)+"/"+encodeURI(result.value.password));
+    var res = httpGet("https://clarityworkshop.n3rdl0rd.repl.co/login/"+encodeURIComponent(result.value.login)+"/"+encodeURIComponent(result.value.password));
     if(res == "ok"){
       localStorage.setItem('user', result.value.login);
 
