@@ -4,7 +4,7 @@ Clarity ~ The Modern, Moddable Platformer!
 
 ### Building Clarity to an Executable
 
-Run `npm install`, then run `npm run build`.
+Run `npm install`, then run `npm start`.
 
 ### Hosting Clarity
 
