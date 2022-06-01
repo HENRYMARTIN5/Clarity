@@ -631,7 +631,6 @@ Clarity.prototype.detectSides = function (id){
   }
 
   var unroundX = this.player.loc.x/16;
-  var unroundY = this.player.loc.y/16;
   
   if (sideDetected == "right"){
     if (Math.round(unroundX + 0.6) == playerX + 1 && isDetected){
