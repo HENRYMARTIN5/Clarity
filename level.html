@@ -172,7 +172,7 @@ Likes: {likes}
 Level ID: {id}
 
 <br/><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://henrymartin5.github.io/Clarity/?id={id}" class="button-62">Play</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://henrymartin5.github.io/Clarity/?id={id}" class="button-62">Play</a>&nbsp;&nbsp;&nbsp;<a href="https://henrymartin5.github.io/Clarity/?id={id}&multiplayer=true" class="button-62">Play (Multiplayer)</a>
 
 <div class="heart{isactive}" id="heart"></div>
 
@@ -187,7 +187,7 @@ Level ID: {id}
 </ol>
 
     
-    `.replace("{title}", LvlData.name).replace("{desc}", LvlData.description).replace("{author}", LvlData.author).replace("{id}", LvlData.id.toString()).replace("{id}", LvlData.id.toString()).replace("{leaderboarditems}", leaderboarditems).replace("{likes}", LvlData.likes).replace("{isactive}", isactive);
+    `.replace("{title}", LvlData.name).replace("{desc}", LvlData.description).replace("{author}", LvlData.author).replace("{id}", LvlData.id.toString()).replace("{id}", LvlData.id.toString()).replace("{id}", LvlData.id.toString()).replace("{leaderboarditems}", leaderboarditems).replace("{likes}", LvlData.likes).replace("{isactive}", isactive);
     title.innerText = "Clarity Workshop - " + LvlData.name + " by " + LvlData.author;
     document.getElementById("container").innerHTML = templateStr;
     
