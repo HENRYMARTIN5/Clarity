@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<title id="title">Clarity Workshop</title>
+<meta charset="UTF-8">
+<link rel="manifest" href="clarity.webmanifest">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="loaders.css">
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8AAAAAAAAAAAAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wBIrP8ASKz/AEis/wBIrP8ASKz/AEis/wBIrP8ASKz/AAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wAAAAAAAAAAAAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AEis/wBIrP8ASKz/AEis/wBIrP8ASKz/AEis/wBIrP8AAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AAAAAAAAAAAAAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AEis/wBIrP8Aa///AGv//wBr//8Aa///AGv//wBr//8Aa///AGv//wBIrP8ASKz/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAAAAAAAAAAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8ASKz/AEis/wBr//8Aa///AGv//wBr//8Aa///AGv//wBr//8Aa///AEis/wBIrP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAAAAAAAAAAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wBIrP8ASKz/AGv//wBr//8Aa///AGv//wBr//8Aa///AGv//wBr//8ASKz/AEis/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AEis/wBIrP8Aa///AGv//wBr//8Aa///AGv//wBr//8Aa///AGv//wBIrP8ASKz/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8ASKz/AEis/wBr//8Aa///AGv//wBr//8Aa///AGv//wBr//8Aa///AEis/wBIrP8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wBIrP8ASKz/AGv//wBr//8Aa///AGv//wBr//8Aa///AGv//wBr//8ASKz/AEis/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AEis/wBIrP8Aa///AGv//wBr//8Aa///AGv//wBr//8Aa///AGv//wBIrP8ASKz/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAAAAAAAAAAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8ASKz/AEis/wBr//8Aa///AGv//wBr//8Aa///AGv//wBr//8Aa///AEis/wBIrP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAAAAAAAAAAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AEis/wBIrP8ASKz/AEis/wBIrP8ASKz/AEis/wBIrP8AAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AAAAAAAAAAAAAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8ASKz/AEis/wBIrP8ASKz/AEis/wBIrP8ASKz/AEis/wAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/AAAA/wAAAP9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf8AAAD/AAAA/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAD/AAAA/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/2FhYf9hYWH/YWFh/wAAAP8AAAD/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/8AD///AA//8AAA//AAAP/AAAA/wAAAPwAAAA8AAAAPAAAADwAAAAwAAAAMAAAADAAAAAwAAAAMAAAD/AAAA/wAAAP8AAAD/AAAAAwAAAAMAAAADAAAAA8AAAAPAAAADwAAAA8AAAAPwAAAP8AAAD/wAAD/8AAA//8AD///AA/8=" type="image/x-icon">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+  <script src="ClarityLevel.js"></script>
+<style>
+  
+	body,
+	h1,
+	h2,
+	h3,
+
+	h4,
+	h5,
+	h6 {
+		font-family: "Raleway", sans-serif;
+    color: #FFF
+    
+	}
+
+  .bkg{
+    background-color: #1d1b31;
+  }
+
+  .level{
+    border: 2px solid #d2bdff;
+	background-color: #3c2d52;
+
+        }
+
+  #container{
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+  .heart {
+  width: 100px;
+  height: 100px;
+  background: url("https://cssanimation.rocks/images/posts/steps/heart.png") no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  transition: background-position 1s steps(28);
+  transition-duration: 0s;
+}
+.heart.is-active {
+  transition-duration: 1s;
+  background-position: -2800px 0;
+}
+
+
+
+</style>
+
+<body class="bkg w3-content" style="max-width:1600px">
+
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<style>
+  A{text-decoration: none;}
+</style>
+<script>
+
+
+</script>
+  
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:15px">
+
+  <!-- Header -->
+  <header id="portfolio">
+
+    <div class="w3-container">
+    <h1><b id="levelname">Clarity Workshop</b></h1><a href="https://henrymartin5.github.io/Clarity/workshop.html"><h2>&#8249;</h2></a><p></p>
+      
+    </div>
+    
+  </header>
+
+  
+  <div id="container">
+
+    <h2><b>{title}</b></h2><h4>By {author}</h4><p>{desc}</p>
+Likes: {likes}
+<br>
+Level ID: {id}
+
+<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://henrymartin5.github.io/Clarity/?id={id}" class="button-62">Play</a>
+
+<div class="heart" id="heart"></div>
+
+
+
+
+
+<br/><br/>
+<h4>Leaderboard</h4>
+<ol>
+  {leaderboarditems}
+</ol>
+<br><br>
+<h4>Comments</h4>
+
+<div class="w3-row-padding">
+    <div class="w3-third w3-container w3-margin-bottom w3-hover-opacity">
+      <div class="w3-container level">
+        <p><b>Commentor(link to profile)</b></p>
+        <p>siaodfjaiusoehfau ivsohdfijc</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="w3-row-padding">
+    <div class="w3-third w3-container w3-margin-bottom w3-hover-opacity">
+      <div class="w3-container level">
+        <p><b>Commentor(link to profile)</b></p>
+        <p>siaodfjaiusoehfau ivsohdfijc</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="w3-row-padding">
+    <div class="w3-third w3-container w3-margin-bottom w3-hover-opacity">
+      <div class="w3-container level">
+        <p><b>Commentor(link to profile)</b></p>
+        <p>siaodfjaiusoehfau ivsohdfijc</p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  </div>
+
+
+<!-- End page content -->
+</div>
+
+<style>
+  /* CSS */
+.button-62 {
+  background: linear-gradient(to bottom right, #e33692, #5d42f5);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.button-62:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(177, 71, 239, 0.5), .125rem .125rem 1rem rgba(255, 90, 159, 0.5);
+}
+
+.button-62:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(200, 71, 239, 0.5), .125rem .125rem 1rem rgba(255, 90, 159, 0.5);
+}
+.button2:hover span:nth-child(4) {
+  filter: hue-rotate(300deg);
+  bottom: -100%;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #3a86ff);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%, 100% {
+    bottom: 100%;
+  }
+}
+</style>
+</body>
+</html>

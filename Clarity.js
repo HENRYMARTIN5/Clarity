@@ -1,8 +1,16 @@
 var Clarity = function () {
   this.start_time = performance.now();
+  
+  this.socket = io("https://clarityMultiplayer.n3rdl0rd.repl.co");
 
+  
+  this.socket.on("players", (players) => {
+    console.log("got players")
+    game.handleLobby(players);
+  })
   this.universalSpeed = false;
   this.debug = false;
+  this.id = false;
   this.alert_errors = false;
   this.log_info = true;
   this.tile_size = 16;
@@ -11,6 +19,8 @@ var Clarity = function () {
   this.allowSpecialJump = true;
   this.deathmsgs = true;
   this.checkpoint = false;
+  this.multiplayer = false;
+  this.username = false;
   this.viewport = {
     x: 200,
     y: 200
@@ -27,7 +37,7 @@ var Clarity = function () {
     up: false
   };
 
-
+  this.current_lobby = {};
 
   this.player = {
 
@@ -45,11 +55,13 @@ var Clarity = function () {
   };
 
 
-
-
   window.onkeydown = this.keydown.bind(this);
   window.onkeyup = this.keyup.bind(this);
 };
+
+Clarity.prototype.handleLobby = function (players) {
+  this.current_lobby = players;
+}
 
 Clarity.prototype.error = function (message) {
 
@@ -465,6 +477,15 @@ Clarity.prototype.move_player = function () {
   }
 
   this.last_tile = tile.id;
+
+  // Emit event to server
+  if(this.id && this.multiplayer){
+    if(!signedin()){
+      signin();
+    }
+    this.socket.emit("move", this.id, {x: this.player.loc.x, y: this.player.loc.y}, signedin());
+  }
+
 };
 
 Clarity.prototype.update_player = function () {
@@ -532,7 +553,7 @@ Clarity.prototype.update_player = function () {
     if (this.player.vel.x < this.current_map.vel_limit.x)
       this.player.vel.x += this.current_map.movement_speed.left;
   }
-
+  // this.update_position();
   this.move_player();
 };
 
@@ -562,6 +583,40 @@ Clarity.prototype.draw_player = function (context) {
   }
 };
 
+Clarity.prototype.draw_other_player = function (context, x, y, username) {
+  console.log("drawing")
+  context.fillStyle = "#FFFFFF";
+  context.font = "10px Arial";
+
+  // Draw the player's username above their player
+  context.fillText(
+    username,
+    x + this.tile_size / 2 - this.camera.x,
+    y + this.tile_size / 2 - this.camera.y - 10
+  );
+  context.fillStyle = "#FF9900";
+  context.beginPath();
+
+  context.arc(
+    x + this.tile_size / 2 - this.camera.x,
+    y + this.tile_size / 2 - this.camera.y,
+    this.tile_size / 2 - 1,
+    0,
+    Math.PI * 2
+  );
+
+  context.fill();
+
+  if(this.debug){
+    context.strokeRect(
+      x + this.tile_size / 2 - this.camera.x - this.tile_size/2,
+      y + this.tile_size / 2 - this.camera.y  - this.tile_size/2,
+      this.tile_size,
+      this.tile_size
+    )
+  }
+}
+
 Clarity.prototype.update = function () {
   if(this.debug){
     document.getElementById("debugmenu2").innerHTML = "X pos: "+this.player.loc.x.toFixed(1) + "<br>Y pos: "+this.player.loc.y.toFixed(1)
@@ -574,7 +629,14 @@ Clarity.prototype.update = function () {
 Clarity.prototype.draw = function (context) {
 
   this.draw_map(context, false);
+  var _this = this;
+  for (const username in _this.current_lobby) {
+    console.log("drawing " + username)
+    var pos = _this.current_lobby[username];
+    _this.draw_other_player(context, pos.x, pos.y, username);
+  }
   this.draw_player(context);
+
 };
 
 const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
