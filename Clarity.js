@@ -583,7 +583,6 @@ Clarity.prototype.draw_player = function (context) {
 };
 
 Clarity.prototype.draw_other_player = function (context, x, y, username) {
-  console.log("drawing")
   context.fillStyle = "#FFFFFF";
   context.font = "10px Arial";
 
