@@ -5,7 +5,6 @@ var Clarity = function () {
 
   
   this.socket.on("players", (players) => {
-    console.log("got players")
     game.handleLobby(players);
   })
   this.universalSpeed = false;
@@ -631,9 +630,10 @@ Clarity.prototype.draw = function (context) {
   this.draw_map(context, false);
   var _this = this;
   for (const username in _this.current_lobby) {
-    console.log("drawing " + username)
-    var pos = _this.current_lobby[username];
-    _this.draw_other_player(context, pos.x, pos.y, username);
+    if (username != signedin()){
+      var pos = _this.current_lobby[username];
+      _this.draw_other_player(context, pos.x, pos.y, username);
+    }
   }
   this.draw_player(context);
 
